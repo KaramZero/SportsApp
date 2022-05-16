@@ -37,3 +37,8 @@ protocol SeasonsRepo {
 protocol TableRepo {
      func gatTable(leagueID : String,season : String ,complition : @escaping ([Table]?) -> Void)
 }
+
+
+protocol YoutubeSearchRepo{
+    func getYoutubeVideoID(keyWord : String , complition : @escaping (String?) -> Void)
+}

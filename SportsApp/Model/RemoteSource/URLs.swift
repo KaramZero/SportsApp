@@ -5,7 +5,7 @@
 //  Created by Karam Ibrahim on 5/13/22.
 //  Copyright © 2022 Karam Ibrahim. All rights reserved.
 //
-
+//https://www.googleapis.com/youtube/v3/search?part=snippet&q=liverpool&type=video&key=AIzaSyAcg31XJ2RDXTYDXQF-FmG8I6cTKDMvo2Y
 import Foundation
 
 
@@ -22,6 +22,8 @@ struct URLs {
     static let GET_ALL_TEAMS_IN_LEAGUE = "search_all_teams.php?l="
     static let GET_TABLE = "lookuptable.php?l="
     static let GET_LAST5_EVENTS_BY_TEAM_ID = "eventslast.php?id="
+    static let YOUTUBEBASE_URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
+    static let API_KEY = "&type=video&key=AIzaSyAcg31XJ2RDXTYDXQF-FmG8I6cTKDMvo2Y"
 }
 
 struct ErrorMessage {

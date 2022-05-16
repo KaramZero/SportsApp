@@ -12,7 +12,7 @@ import Foundation
 class RemoteSource : RemoteApi{
     
     static let sharedObject = RemoteSource()
-    private let source = ApiBaseSource()
+    private let source : SportsApi = ApiBaseSource()
     private let decoder = JSONDecoder()
     
     private init(){

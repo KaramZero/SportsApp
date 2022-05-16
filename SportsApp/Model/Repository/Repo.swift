@@ -11,10 +11,11 @@ import Foundation
 import Network
 
 
-class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo{
+class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo, YoutubeSearchRepo{
     
     private static var sharedRepo : Repo?
     private var remoteSource : RemoteApi?
+    private var youtubeSource : YoutubeSearch = YoutebeRemoteSource.sharedObject
     private let monitor = NWPathMonitor()
     private var isConnected = true
     
@@ -130,5 +131,15 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
         }
     }
     
-    
+    func getYoutubeVideoID(keyWord : String , complition : @escaping (String?) -> Void){
+        if isConnected {
+            youtubeSource.getYoutubeVideoID(keyWord:keyWord){res in
+                complition(res)
+            }
+               }else {
+                   complition(nil)
+               }
+        
+    }
+
 }
