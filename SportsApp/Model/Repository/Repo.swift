@@ -11,7 +11,7 @@ import Foundation
 import Network
 
 
-class Repo{
+class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo{
     
     private static var sharedRepo : Repo?
     private var remoteSource : RemoteSource?

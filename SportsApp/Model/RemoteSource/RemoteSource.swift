@@ -9,7 +9,7 @@
 import Foundation
 
 
-class RemoteSource{
+class RemoteSource : RemoteApi{
     
     static let sharedObject = RemoteSource()
     private let source = ApiBaseSource()
@@ -22,6 +22,22 @@ class RemoteSource{
     func getEvents(complition : @escaping ([Event]?) -> Void) {
         
     }
+    
+    func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void) {
+        
+        source.getResponse(url: URLs.GET_LAST5_EVENTS_BY_TEAM_ID + teamID) {(res) in
+                   do{
+                       let response = try self.decoder.decode(Events.self, from: res!)
+                       print("All LastEventsByTeamID are here")
+                       complition(response.events)
+                       
+                   }catch let error{
+                       print("All LastEventsByTeamID are not Here")
+                       print(error.localizedDescription)
+                   }
+               }
+    }
+    
     
     func getAllTeams(leagueName : String , complition : @escaping ([Team]?) -> Void) {
         let leagueName = leagueName.replacingOccurrences(of: " ", with: "%20")
