@@ -14,6 +14,7 @@ protocol AllSportsRepo {
 
 protocol EventsRepo {
      func getEvents(complition : @escaping ([Event]?) -> Void)
+     func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void)
 }
 
 protocol TeamsRepo {

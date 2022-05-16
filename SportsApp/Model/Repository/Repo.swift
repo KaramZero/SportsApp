@@ -14,7 +14,7 @@ import Network
 class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo{
     
     private static var sharedRepo : Repo?
-    private var remoteSource : RemoteSource?
+    private var remoteSource : RemoteApi?
     private let monitor = NWPathMonitor()
     private var isConnected = true
     
@@ -53,6 +53,16 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
         }else {
             complition(nil)
         }
+    }
+    
+    func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void){
+        if isConnected {
+                   remoteSource?.getLastEventsByTeamID(teamID: teamID ){ events in
+                       complition(events)
+                   }
+               }else {
+                   complition(nil)
+               }
     }
     
     func getAllTeams(leagueName : String , complition : @escaping ([Team]?) -> Void) {
