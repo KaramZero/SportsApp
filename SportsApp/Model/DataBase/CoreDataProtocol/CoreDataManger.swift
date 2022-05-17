@@ -15,5 +15,7 @@ protocol CoreDataManager {
        
   func fetchFavouriteLeague() -> [NSManagedObject]
   func deleteSport(_ object :NSManagedObject)
+    
+    
    
 }
