@@ -23,6 +23,9 @@ protocol TeamsRepo {
 
 protocol LeaguesRepo {
      func getAllLeagues(complition : @escaping ([League]?) -> Void)
+     func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void)
+     func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
+     func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
 }
 
 protocol CountriesRepo {

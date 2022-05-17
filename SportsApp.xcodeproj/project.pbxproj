@@ -47,6 +47,8 @@
 		8E2C11382831B74B00C13BA0 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C11262831B74B00C13BA0 /* Events.swift */; };
 		8E2D55692831C0C800F458D1 /* RepoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D55682831C0C800F458D1 /* RepoProtocols.swift */; };
 		8E2D556B2831CB5A00F458D1 /* RemoteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D556A2831CB5A00F458D1 /* RemoteProtocol.swift */; };
+		8E3386B2283434F800A73638 /* CountryLeagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3386B0283434F800A73638 /* CountryLeagues.swift */; };
+		8E3386B3283434F800A73638 /* CountryLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3386B1283434F800A73638 /* CountryLeague.swift */; };
 		D87B8163A276E9AA98735B88 /* Pods_SportsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC30669A0E1CDFF3CA28F7D /* Pods_SportsAppTests.framework */; };
 		EEE0E05B12C4A3560BED269C /* Pods_SportsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF7D7DC736604B5E1443E37 /* Pods_SportsApp.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +111,8 @@
 		8E2C11262831B74B00C13BA0 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		8E2D55682831C0C800F458D1 /* RepoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoProtocols.swift; sourceTree = "<group>"; };
 		8E2D556A2831CB5A00F458D1 /* RemoteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProtocol.swift; sourceTree = "<group>"; };
+		8E3386B0283434F800A73638 /* CountryLeagues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryLeagues.swift; sourceTree = "<group>"; };
+		8E3386B1283434F800A73638 /* CountryLeague.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryLeague.swift; sourceTree = "<group>"; };
 		9CF7D7DC736604B5E1443E37 /* Pods_SportsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDD40783AF232918D5E0A56 /* Pods-SportsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsAppTests.release.xcconfig"; path = "Target Support Files/Pods-SportsAppTests/Pods-SportsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E7BE3240D91F552CEABA997C /* Pods-SportsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SportsAppTests/Pods-SportsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 		8E2C11112831B74B00C13BA0 /* POJO */ = {
 			isa = PBXGroup;
 			children = (
+				8E3386AF283434F800A73638 /* CountryLeagues */,
 				8E2B309E28328F9F00AA48D0 /* youtubeSearchListResponse */,
 				8E2C11122831B74B00C13BA0 /* Tables */,
 				8E2C11152831B74B00C13BA0 /* Leagues */,
@@ -377,6 +382,15 @@
 				8E2D55682831C0C800F458D1 /* RepoProtocols.swift */,
 			);
 			path = RepoProtocols;
+			sourceTree = "<group>";
+		};
+		8E3386AF283434F800A73638 /* CountryLeagues */ = {
+			isa = PBXGroup;
+			children = (
+				8E3386B0283434F800A73638 /* CountryLeagues.swift */,
+				8E3386B1283434F800A73638 /* CountryLeague.swift */,
+			);
+			path = CountryLeagues;
 			sourceTree = "<group>";
 		};
 		F46C36CC5B077D3D099B8742 /* Pods */ = {
@@ -576,6 +590,7 @@
 				8E2C11362831B74B00C13BA0 /* Country.swift in Sources */,
 				8E2C11282831B74B00C13BA0 /* RemoteSource.swift in Sources */,
 				8E2C112B2831B74B00C13BA0 /* Table.swift in Sources */,
+				8E3386B2283434F800A73638 /* CountryLeagues.swift in Sources */,
 				8E2B30AC28328F9F00AA48D0 /* High.swift in Sources */,
 				8E2C11332831B74B00C13BA0 /* Team.swift in Sources */,
 				8E2B30AE28328F9F00AA48D0 /* PageInfo.swift in Sources */,
@@ -588,6 +603,7 @@
 				8E2C112F2831B74B00C13BA0 /* Sports.swift in Sources */,
 				8E2B30A928328F9F00AA48D0 /* Id.swift in Sources */,
 				8E2C10B32831A33200C13BA0 /* SportsApp.xcdatamodeld in Sources */,
+				8E3386B3283434F800A73638 /* CountryLeague.swift in Sources */,
 				8E2C10AB2831A33200C13BA0 /* SceneDelegate.swift in Sources */,
 				8E2B30B728329A0F00AA48D0 /* YoutubeProtocols.swift in Sources */,
 				8E2C112E2831B74B00C13BA0 /* League.swift in Sources */,

@@ -87,6 +87,55 @@ class RemoteSource : RemoteApi{
         
     }
     
+    func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void){
+        let countryName = countryName.replacingOccurrences(of: " ", with: "%20")
+       
+        source.getResponse(url: URLs.SEARCH_LEAGUE + "c=" + countryName) {(res) in
+                  do{
+                      let response = try self.decoder.decode(CountryLeagues.self, from: res!)
+                      print("All Leagues are here")
+                    complition(response.countryLeagues)
+                      
+                  }catch let error{
+                      print("All Leagues are not Here")
+                      print(error.localizedDescription)
+                  }
+              }
+    }
+    
+    func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
+        let countyrName = countryName.replacingOccurrences(of: " ", with: "%20")
+        let sportName = sportName.replacingOccurrences(of: " ", with: "%20")
+        source.getResponse(url: URLs.SEARCH_LEAGUE + "c=" + countryName + "&s="+sportName) {(res) in
+                         do{
+                             let response = try self.decoder.decode(CountryLeagues.self, from: res!)
+                             print("All Leagues are here")
+                           complition(response.countryLeagues)
+                             
+                         }catch let error{
+                             print("All Leagues are not Here")
+                             print(error.localizedDescription)
+                         }
+                     }
+    }
+      
+    func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
+        let sportName = sportName.replacingOccurrences(of: " ", with: "%20")
+             
+               source.getResponse(url: URLs.SEARCH_LEAGUE + "s=" + sportName) {(res) in
+                                do{
+                                    let response = try self.decoder.decode(CountryLeagues.self, from: res!)
+                                    print("All Leagues are here")
+                                  complition(response.countryLeagues)
+                                    
+                                }catch let error{
+                                    print("All Leagues are not Here")
+                                    print(error.localizedDescription)
+                                }
+                            }
+    }
+    
+    
     func getAllCountries(complition : @escaping ([Country]?) -> Void) {
         
         source.getResponse(url: URLs.GET_ALL_COUNTRIES) {(res) in
