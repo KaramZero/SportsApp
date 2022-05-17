@@ -10,6 +10,8 @@ target 'SportsApp' do
 	
 	  pod 'Alamofire', '~> 4.9.1'
 
+pod 'Kingfisher', '~> 5.0'
+
 
   target 'SportsAppTests' do
     inherit! :search_paths
