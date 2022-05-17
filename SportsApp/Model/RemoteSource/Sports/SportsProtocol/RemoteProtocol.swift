@@ -20,6 +20,10 @@ protocol RemoteApi{
     
     func getAllLeagues(complition : @escaping ([League]?) -> Void)
     
+    func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void)
+    func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
+    func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
+    
     func getAllCountries(complition : @escaping ([Country]?) -> Void)
     
     func gatAllSeasonsInLeague(leagueID : String ,complition : @escaping ([Season]?) -> Void)

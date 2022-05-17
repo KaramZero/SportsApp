@@ -97,6 +97,36 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
         
     }
     
+    func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void){
+        if isConnected {
+            remoteSource?.getLeagues(countryName : countryName){ leagues in
+                complition(leagues)
+            }
+        }else {
+            complition(nil)
+        }
+    }
+    
+    func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
+        if isConnected {
+            remoteSource?.getLeagues(sportName : sportName){ leagues in
+                complition(leagues)
+            }
+        }else {
+            complition(nil)
+        }
+    }
+    
+    func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
+        if isConnected {
+            remoteSource?.getLeagues(countryName : countryName , sportName : sportName){ leagues in
+                complition(leagues)
+            }
+        }else {
+            complition(nil)
+        }
+    }
+    
     func getAllCountries(complition : @escaping ([Country]?) -> Void) {
         
         if isConnected {
