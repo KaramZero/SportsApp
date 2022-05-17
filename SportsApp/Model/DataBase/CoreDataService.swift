@@ -13,12 +13,12 @@ import  CoreData
 class CoreDataService :CoreDataManager{
 
 
+    static let sharedCoreDataService = CoreDataService()
+    
         var favLeague: [FavouriteLeague] = []
        var context : NSManagedObjectContext!
         
-        init() {
-        
-    }
+        private init() {}
 
         func saveFavouriteLeague(_ favouriteLeague: FavouriteLeague) {
        
