@@ -163,7 +163,6 @@
 			children = (
 				504032BF28335D5E005837F6 /* CoreDataProtocol */,
 				504032BA28335278005837F6 /* CoreDataService.swift */,
-				504032BC283352CA005837F6 /* FavouriteLeague.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -344,6 +343,7 @@
 		8E2C11112831B74B00C13BA0 /* POJO */ = {
 			isa = PBXGroup;
 			children = (
+				8ED5665628345C8200E3456C /* FavouriteLeague */,
 				8E3386AF283434F800A73638 /* CountryLeagues */,
 				8E2B309E28328F9F00AA48D0 /* youtubeSearchListResponse */,
 				8E2C11122831B74B00C13BA0 /* Tables */,
@@ -461,6 +461,14 @@
 				8ED566522834520000E3456C /* AllSportsCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8ED5665628345C8200E3456C /* FavouriteLeague */ = {
+			isa = PBXGroup;
+			children = (
+				504032BC283352CA005837F6 /* FavouriteLeague.swift */,
+			);
+			path = FavouriteLeague;
 			sourceTree = "<group>";
 		};
 		F46C36CC5B077D3D099B8742 /* Pods */ = {
