@@ -51,7 +51,7 @@ class CoreDataService :CoreDataManager{
 
     
     
-    func fetchFavouriteLeague() -> [NSManagedObject] {
+    func fetchFavouriteLeague() -> [FavouriteLeague] {
     
            let appDelegate = UIApplication.shared.delegate as! AppDelegate
            let context = appDelegate.persistentContainer.viewContext
@@ -68,7 +68,17 @@ class CoreDataService :CoreDataManager{
                   }catch {
                       print("can not retrive data")
                   }
-              return Favleag
+         
+        var favLeague: [FavouriteLeague] = []
+        for o in Favleag {
+            var tempLeague = FavouriteLeague()
+            tempLeague.strBadge = o.value(forKey: "strBadge") as! String
+            tempLeague.strLeague = o.value(forKey: "strLeague") as! String
+            tempLeague.strYourTube = o.value(forKey: "strYourTube") as! String
+            tempLeague.isFavourite = o.value(forKey: "isFavourite") as! Bool
+        }
+       
+              return favLeague
     }
     
     

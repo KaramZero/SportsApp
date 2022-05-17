@@ -9,8 +9,6 @@
 import Foundation
 class FavouriteLeague
 {
-    
-    
     var strLeague    : String?
     var strBadge     : String?
     var strYourTube  : String?
