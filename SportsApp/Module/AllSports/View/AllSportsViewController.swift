@@ -14,7 +14,8 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
     //testing ui using direct call from repo - will be deleted later
     var presenter  = AllSportsPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
     var sportArr : [Sport]?
-    var fromSportsToLeagueProtocol :FromSportsToLeagueProtocol?
+   // var fromSportsToLeagueProtocol :FromSportsToLeagueProtocol?
+    
 
     //outlets
     @IBOutlet weak var allSportsCollectionView: UICollectionView!
@@ -62,16 +63,14 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
             return CGSize(width: width, height: 150)
         }
     
-    //perform actions while clicking on cell - send sport name to leagues
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sport = sportArr?[indexPath.row] ?? nil
-        fromSportsToLeagueProtocol?.FromSportsToLeague(sportName: (sport?.strSport!)!)
-        print("sport name from all sports \(String(describing: sport?.strSport))")
-        let AllLeaguesVC = AllLeaguesViewController()
-        performSegue(withIdentifier: "fromAllSportsToAllLeagues", sender: nil)
-
-    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let AllLeaguesVC : AllLeaguesViewController = segue.destination as! AllLeaguesViewController
+        let  cell = sender as! UICollectionViewCell
+        let index = allSportsCollectionView.indexPath(for : cell)
+        AllLeaguesVC.sportName = sportArr?[index?.row ?? 0].strSport
+        self.present(AllLeaguesVC,animated: true)
+    }
     
 
 
