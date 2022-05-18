@@ -19,6 +19,7 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
     //outlets
     @IBOutlet weak var allLeaguesTable: UITableView!
     @IBAction func backToSportsButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -51,6 +52,7 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
         let process = RoundCornerImageProcessor(cornerRadius: 20.0)
         cell.allLeaguesCellName.text = league?.strLeague
         cell.allLeaguesCellImage?.kf.setImage(with:URL(string: (league?.strBadge)!),placeholder: UIImage(named: "field"), options: [.processor(process)], progressBlock: nil)
+        
         return cell
     }
     
