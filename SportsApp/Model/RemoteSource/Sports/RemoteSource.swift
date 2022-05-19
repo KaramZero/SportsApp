@@ -26,17 +26,62 @@ class RemoteSource : RemoteApi{
     func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void) {
         
         source.getResponse(url: URLs.GET_LAST5_EVENTS_BY_TEAM_ID + teamID) {(res) in
-                   do{
-                       let response = try self.decoder.decode(Events.self, from: res!)
-                       print("All LastEventsByTeamID are here")
-                       complition(response.events)
-                       
-                   }catch let error{
-                       print("All LastEventsByTeamID are not Here")
-                       print(error.localizedDescription)
-                   }
-               }
+            do{
+                let response = try self.decoder.decode(Events.self, from: res!)
+                print("All LastEventsByTeamID are here")
+                complition(response.events)
+                
+            }catch let error{
+                print("All LastEventsByTeamID are not Here")
+                print(error.localizedDescription)
+            }
+        }
     }
+    
+    func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void){
+        source.getResponse(url: URLs.GET_LATEST_EVENT + leagueID) {(res) in
+            do{
+                let response = try self.decoder.decode(Events.self, from: res!)
+                print("All getLastEventsByLeagueID are here")
+                var events : [Event] = []
+                for e in response.events!{
+                    
+                    if e.strStatus == nil || e.strStatus == "Match Finished" {
+                        events.append(e)
+                    }
+                }
+                
+                complition(events)
+                
+            }catch let error{
+                print("All getLastEventsByLeagueID are not Here")
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func getUpcomingEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void){
+        source.getResponse(url: URLs.GET_LATEST_EVENT + leagueID) {(res) in
+            do{
+                let response = try self.decoder.decode(Events.self, from: res!)
+                print("All getUpcomingEventsByLeagueID are here ")
+                var events : [Event] = []
+                for e in response.events!{
+                    
+                    if !(e.strStatus == nil || e.strStatus == "Match Finished") {
+                        events.append(e)
+                    }
+                }
+                
+                complition(events)
+                
+            }catch let error{
+                print("All getUpcomingEventsByLeagueID are not Here")
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
     
     
     func getAllTeams(leagueName : String , complition : @escaping ([Team]?) -> Void) {
@@ -89,50 +134,50 @@ class RemoteSource : RemoteApi{
     
     func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void){
         let countryName = countryName.replacingOccurrences(of: " ", with: "%20")
-       
+        
         source.getResponse(url: URLs.SEARCH_LEAGUE + "c=" + countryName) {(res) in
-                  do{
-                      let response = try self.decoder.decode(CountryLeagues.self, from: res!)
-                      print("All Leagues are here")
-                    complition(response.countryLeagues)
-                      
-                  }catch let error{
-                      print("All Leagues are not Here")
-                      print(error.localizedDescription)
-                  }
-              }
+            do{
+                let response = try self.decoder.decode(CountryLeagues.self, from: res!)
+                print("All Leagues are here")
+                complition(response.countryLeagues)
+                
+            }catch let error{
+                print("All Leagues are not Here")
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
         let countyrName = countryName.replacingOccurrences(of: " ", with: "%20")
         let sportName = sportName.replacingOccurrences(of: " ", with: "%20")
         source.getResponse(url: URLs.SEARCH_LEAGUE + "c=" + countryName + "&s="+sportName) {(res) in
-                         do{
-                             let response = try self.decoder.decode(CountryLeagues.self, from: res!)
-                             print("All Leagues are here")
-                           complition(response.countryLeagues)
-                             
-                         }catch let error{
-                             print("All Leagues are not Here")
-                             print(error.localizedDescription)
-                         }
-                     }
+            do{
+                let response = try self.decoder.decode(CountryLeagues.self, from: res!)
+                print("All Leagues are here")
+                complition(response.countryLeagues)
+                
+            }catch let error{
+                print("All Leagues are not Here")
+                print(error.localizedDescription)
+            }
+        }
     }
-      
+    
     func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
         let sportName = sportName.replacingOccurrences(of: " ", with: "%20")
-             
-               source.getResponse(url: URLs.SEARCH_LEAGUE + "s=" + sportName) {(res) in
-                                do{
-                                    let response = try self.decoder.decode(CountryLeagues.self, from: res!)
-                                    print("All Leagues are here")
-                                  complition(response.countryLeagues)
-                                    
-                                }catch let error{
-                                    print("All Leagues are not Here")
-                                    print(error.localizedDescription)
-                                }
-                            }
+        
+        source.getResponse(url: URLs.SEARCH_LEAGUE + "s=" + sportName) {(res) in
+            do{
+                let response = try self.decoder.decode(CountryLeagues.self, from: res!)
+                print("All Leagues are here")
+                complition(response.countryLeagues)
+                
+            }catch let error{
+                print("All Leagues are not Here")
+                print(error.localizedDescription)
+            }
+        }
     }
     
     

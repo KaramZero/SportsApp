@@ -55,6 +55,25 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
             complition(nil)
         }
     }
+    func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void){
+        if isConnected {
+            remoteSource?.getLastEventsByLeagueID(leagueID: leagueID ){ events in
+                complition(events)
+            }
+        }else {
+            complition(nil)
+        }
+    }
+    func getUpcomingEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void){
+        if isConnected {
+            remoteSource?.getUpcomingEventsByLeagueID(leagueID: leagueID ){ events in
+                complition(events)
+            }
+        }else {
+            complition(nil)
+        }
+    }
+     
     
     func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void){
         if isConnected {

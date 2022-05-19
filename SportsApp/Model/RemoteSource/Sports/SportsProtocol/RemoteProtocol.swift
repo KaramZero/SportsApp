@@ -15,7 +15,9 @@ protocol RemoteApi{
     func getEvents(complition : @escaping ([Event]?) -> Void)
     
     func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void)
-    
+    func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
+    func getUpcomingEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
+     
     func getAllTeams(leagueName : String , complition : @escaping ([Team]?) -> Void)
     
     func getAllLeagues(complition : @escaping ([League]?) -> Void)
