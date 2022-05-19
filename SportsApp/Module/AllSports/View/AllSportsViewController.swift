@@ -22,6 +22,8 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // CoreDataService.saveFavouriteLeague()
+        
         allSportsCollectionView.dataSource = self
         allSportsCollectionView.delegate = self
         allSportsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()

@@ -13,9 +13,6 @@ protocol CoreDataManager {
     
     func saveFavouriteLeague(_ favouriteLeague:FavouriteLeague)
     
-    func fetchFavouriteLeague() -> [FavouriteLeague]
-    func deleteSport(_ object :NSManagedObject)
-    
-    
-   
+ func fetchFavouriteLeague() -> [FavouriteDB]
+    func deleteSport(_ object:FavouriteDB) 
 }

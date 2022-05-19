@@ -8,7 +8,7 @@
 
 import Foundation
 class AllSportsPresenter {
-    
+
     var repo : AllSportsRepo
     
     init(repo : AllSportsRepo) {
