@@ -19,7 +19,10 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
     //outlets
     @IBOutlet weak var allLeaguesTable: UITableView!
     @IBAction func backToSportsButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -53,17 +56,21 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
         cell.allLeaguesCellName.text = league?.strLeague
         cell.allLeaguesCellImage?.kf.setImage(with:URL(string: (league?.strBadge)!),placeholder: UIImage(named: "field"), options: [.processor(process)], progressBlock: nil)
         
+        //youtube button not handled yet 
+        
         return cell
     }
     
 
 
-//    //protocol functions
-//    func FromSportsToLeague(sportName: String) {
-//        self.sportName = sportName
-//        print("from all leagues \(String(describing: self.sportName))")
-//        allLeaguesTable.reloadData()
-//    }
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    let detailsVC : DetailsLeagueViewController = segue.destination as! DetailsLeagueViewController
+    let cell = sender as! UITableViewCell
+    let index = allLeaguesTable.indexPath(for: cell)
+    detailsVC.leagueName = leaguesArr?[index?.row ?? 0].strLeague
+    self.present(detailsVC, animated: true)
+}
     
 
     /*

@@ -150,7 +150,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backToSportsButton:" destination="KLZ-uL-weL" eventType="touchUpInside" id="UcO-v1-8ob"/>
-                                    <segue destination="H08-8z-zVW" kind="show" id="3Zy-Om-epN"/>
+                                    <segue destination="H08-8z-zVW" kind="show" identifier="backToSports" id="3Zy-Om-epN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Leagues" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZW-Wi-Udh">
@@ -212,6 +212,7 @@
                                         <connections>
                                             <outlet property="allLeaguesCellImage" destination="lGk-Jv-tyY" id="UFe-r5-OPx"/>
                                             <outlet property="allLeaguesCellName" destination="7lu-MP-O4N" id="USn-WX-k7C"/>
+                                            <segue destination="UW1-na-ufU" kind="show" identifier="goToAllLeagues" id="ZXN-46-uGX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -240,6 +241,193 @@
             </objects>
             <point key="canvasLocation" x="667" y="1674"/>
         </scene>
+        <!--Details League View Controller-->
+        <scene sceneID="HV9-3s-BLh">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="UW1-na-ufU" customClass="DetailsLeagueViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pgg-yD-XBA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QS-5s-2dA">
+                                <rect key="frame" x="16" y="60" width="81" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="UW1-na-ufU" eventType="touchUpInside" id="7DH-n5-LIY"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="76s-YU-1nh">
+                                <rect key="frame" x="16" y="133" width="382" height="181"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T6H-AJ-k5n">
+                                    <size key="itemSize" width="382" height="184"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UpComingCollectionViewCell" id="Eai-k0-DAK" customClass="UpComingCollectionViewCell" customModule="SportsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="184"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gdp-2d-NMP">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="184"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g95-ka-Yqb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="184"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYK-bJ-MJl">
+                                                    <rect key="frame" x="32" y="133" width="39.5" height="19"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="16" name="ComicSansMS"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhK-k4-ryf">
+                                                    <rect key="frame" x="310.5" y="133" width="39.5" height="19"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.99992352724075317" green="1" blue="0.99988299608230591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="16" name="ComicSansMS"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKI-jb-fQS">
+                                                    <rect key="frame" x="64" y="38" width="254" height="24"/>
+                                                    <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="20"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7b-Nb-sxU">
+                                                    <rect key="frame" x="64" y="74" width="254" height="19"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="16" name="ComicSansMS"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52F-oc-aA3">
+                                                    <rect key="frame" x="64" y="101" width="254" height="19"/>
+                                                    <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="16"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="QKI-jb-fQS" secondAttribute="trailing" constant="64" id="0x5-Yb-iQk"/>
+                                                <constraint firstAttribute="bottom" secondItem="rYK-bJ-MJl" secondAttribute="bottom" constant="32" id="D6s-qo-cIa"/>
+                                                <constraint firstItem="QKI-jb-fQS" firstAttribute="top" secondItem="Gdp-2d-NMP" secondAttribute="top" constant="32" id="J87-Xc-Ufw"/>
+                                                <constraint firstItem="B7b-Nb-sxU" firstAttribute="top" secondItem="QKI-jb-fQS" secondAttribute="bottom" constant="32" id="JGm-NE-nN7"/>
+                                                <constraint firstItem="g95-ka-Yqb" firstAttribute="top" secondItem="Gdp-2d-NMP" secondAttribute="top" id="Mjy-ky-xSf"/>
+                                                <constraint firstItem="52F-oc-aA3" firstAttribute="leading" secondItem="B7b-Nb-sxU" secondAttribute="leading" id="WEb-oU-zhg"/>
+                                                <constraint firstItem="QKI-jb-fQS" firstAttribute="leading" secondItem="Gdp-2d-NMP" secondAttribute="leading" constant="64" id="Xnk-7h-CGe"/>
+                                                <constraint firstItem="rYK-bJ-MJl" firstAttribute="leading" secondItem="Gdp-2d-NMP" secondAttribute="leading" constant="32" id="dcN-cm-w5n"/>
+                                                <constraint firstAttribute="trailing" secondItem="WhK-k4-ryf" secondAttribute="trailing" constant="32" id="gur-xQ-ph6"/>
+                                                <constraint firstAttribute="bottom" secondItem="g95-ka-Yqb" secondAttribute="bottom" id="gvy-rO-4eg"/>
+                                                <constraint firstItem="QKI-jb-fQS" firstAttribute="leading" secondItem="B7b-Nb-sxU" secondAttribute="leading" id="iXs-k8-Vpe"/>
+                                                <constraint firstItem="B7b-Nb-sxU" firstAttribute="trailing" secondItem="QKI-jb-fQS" secondAttribute="trailing" id="imw-nM-8bN"/>
+                                                <constraint firstAttribute="bottom" secondItem="WhK-k4-ryf" secondAttribute="bottom" constant="32" id="pkr-im-XTZ"/>
+                                                <constraint firstItem="g95-ka-Yqb" firstAttribute="leading" secondItem="Gdp-2d-NMP" secondAttribute="leading" id="rcH-J6-3x7"/>
+                                                <constraint firstAttribute="trailing" secondItem="g95-ka-Yqb" secondAttribute="trailing" id="sKU-4j-OQR"/>
+                                                <constraint firstItem="52F-oc-aA3" firstAttribute="top" secondItem="B7b-Nb-sxU" secondAttribute="bottom" constant="8" id="tus-22-ooa"/>
+                                                <constraint firstAttribute="bottom" secondItem="52F-oc-aA3" secondAttribute="bottom" constant="64" id="vMy-eV-Sxc"/>
+                                                <constraint firstItem="52F-oc-aA3" firstAttribute="trailing" secondItem="B7b-Nb-sxU" secondAttribute="trailing" id="xZJ-Wd-uQi"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="382" height="184"/>
+                                        <connections>
+                                            <outlet property="upCominCellImage" destination="g95-ka-Yqb" id="0yy-6n-RPg"/>
+                                            <outlet property="upComingCellEventDate" destination="B7b-Nb-sxU" id="bNT-f2-klg"/>
+                                            <outlet property="upComingCellEventName" destination="QKI-jb-fQS" id="l8d-Mu-aqt"/>
+                                            <outlet property="upComingCellEventTime" destination="52F-oc-aA3" id="qYf-pe-WB8"/>
+                                            <outlet property="upComingCellTeamOneName" destination="rYK-bJ-MJl" id="cW0-PO-J4T"/>
+                                            <outlet property="upComingCellTeamTwoName" destination="WhK-k4-ryf" id="AYl-qD-UCZ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB1-X5-UD2">
+                                <rect key="frame" x="64" y="104" width="154" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Up-Coming Events">
+                                        <attributes>
+                                            <color key="NSColor" red="0.091445811092853546" green="0.32592383027076721" blue="0.47696214914321899" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="ComicSansMS-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wn-Iv-zx8">
+                                <rect key="frame" x="129" y="60" width="221" height="36"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Leagues Details Name">
+                                        <attributes>
+                                            <color key="NSColor" red="0.090117208659648895" green="0.34291923046112061" blue="0.47694504261016846" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="22" name="ComicSansMS-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbu-q5-JRN">
+                                <rect key="frame" x="366" y="60" width="40" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="likeBtn:" destination="UW1-na-ufU" eventType="touchUpInside" id="sIN-Kn-v6E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pbu-q5-JRN" firstAttribute="top" secondItem="1Wn-Iv-zx8" secondAttribute="top" id="5nK-A7-coO"/>
+                            <constraint firstItem="76s-YU-1nh" firstAttribute="leading" secondItem="Ww7-ad-Gu9" secondAttribute="leading" constant="16" id="91o-hK-yYg"/>
+                            <constraint firstItem="Ww7-ad-Gu9" firstAttribute="trailing" secondItem="pbu-q5-JRN" secondAttribute="trailing" constant="8" id="B62-0r-egG"/>
+                            <constraint firstItem="0QS-5s-2dA" firstAttribute="top" secondItem="Ww7-ad-Gu9" secondAttribute="top" constant="16" id="FGd-Kg-7dl"/>
+                            <constraint firstItem="1Wn-Iv-zx8" firstAttribute="leading" secondItem="0QS-5s-2dA" secondAttribute="trailing" constant="32" id="JUE-UK-KOx"/>
+                            <constraint firstItem="pbu-q5-JRN" firstAttribute="leading" secondItem="1Wn-Iv-zx8" secondAttribute="trailing" constant="16" id="JZz-mT-gul"/>
+                            <constraint firstItem="1Wn-Iv-zx8" firstAttribute="top" secondItem="0QS-5s-2dA" secondAttribute="top" id="Nfg-c1-q4H"/>
+                            <constraint firstItem="pbu-q5-JRN" firstAttribute="bottom" secondItem="1Wn-Iv-zx8" secondAttribute="bottom" id="b0R-yO-vKr"/>
+                            <constraint firstItem="1Wn-Iv-zx8" firstAttribute="bottom" secondItem="0QS-5s-2dA" secondAttribute="bottom" id="fhi-uH-z41"/>
+                            <constraint firstItem="MB1-X5-UD2" firstAttribute="leading" secondItem="Ww7-ad-Gu9" secondAttribute="leading" constant="64" id="jF8-V0-Qx8"/>
+                            <constraint firstItem="Ww7-ad-Gu9" firstAttribute="bottom" secondItem="76s-YU-1nh" secondAttribute="bottom" constant="548" id="kPd-Su-pCR"/>
+                            <constraint firstItem="MB1-X5-UD2" firstAttribute="top" secondItem="0QS-5s-2dA" secondAttribute="bottom" constant="8" id="qa4-XY-hJM"/>
+                            <constraint firstItem="76s-YU-1nh" firstAttribute="top" secondItem="MB1-X5-UD2" secondAttribute="bottom" constant="8" id="sJo-D2-d30"/>
+                            <constraint firstItem="Ww7-ad-Gu9" firstAttribute="trailing" secondItem="76s-YU-1nh" secondAttribute="trailing" constant="16" id="xYI-Da-Aik"/>
+                            <constraint firstItem="Ww7-ad-Gu9" firstAttribute="trailing" secondItem="1Wn-Iv-zx8" secondAttribute="trailing" constant="64" id="ycK-g8-qzr"/>
+                            <constraint firstItem="0QS-5s-2dA" firstAttribute="leading" secondItem="Ww7-ad-Gu9" secondAttribute="leading" constant="16" id="yf5-0O-2Zo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ww7-ad-Gu9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="efR-74-eJF"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="1Wn-Iv-zx8" id="S5K-eY-DxG"/>
+                        <outlet property="upComingCollectionView" destination="76s-YU-1nh" id="cXf-39-gc8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuP-MX-dfG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666.66666666666674" y="2394.6428571428569"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hht-RT-4YP">
             <objects>
@@ -263,6 +451,7 @@
         <segue reference="3Zy-Om-epN"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="sportscourt" catalog="system" width="128" height="83"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="youtube" width="320" height="320"/>

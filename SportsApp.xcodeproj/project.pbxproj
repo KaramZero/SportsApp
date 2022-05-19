@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		41A2239D2835709F00D31FAE /* AllLeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A2239C2835709F00D31FAE /* AllLeaguesPresenter.swift */; };
+		41BEA60C2835B7F900D4BF6F /* DetailsLeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEA60B2835B7F900D4BF6F /* DetailsLeagueViewController.swift */; };
+		41BEA6112835C26B00D4BF6F /* UpComingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEA6102835C26B00D4BF6F /* UpComingCollectionViewCell.swift */; };
 		504032BB28335278005837F6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504032BA28335278005837F6 /* CoreDataService.swift */; };
 		504032BD283352CA005837F6 /* FavouriteLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504032BC283352CA005837F6 /* FavouriteLeague.swift */; };
 		504032C128335D89005837F6 /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504032C028335D89005837F6 /* CoreDataManger.swift */; };
@@ -78,6 +80,8 @@
 		1AC30669A0E1CDFF3CA28F7D /* Pods_SportsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D6BF5790C1D37C05D3CA4B /* Pods-SportsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.release.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.release.xcconfig"; sourceTree = "<group>"; };
 		41A2239C2835709F00D31FAE /* AllLeaguesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeaguesPresenter.swift; sourceTree = "<group>"; };
+		41BEA60B2835B7F900D4BF6F /* DetailsLeagueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLeagueViewController.swift; sourceTree = "<group>"; };
+		41BEA6102835C26B00D4BF6F /* UpComingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCollectionViewCell.swift; sourceTree = "<group>"; };
 		504032BA28335278005837F6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		504032BC283352CA005837F6 /* FavouriteLeague.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteLeague.swift; sourceTree = "<group>"; };
 		504032C028335D89005837F6 /* CoreDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
@@ -182,6 +186,31 @@
 				41A2239C2835709F00D31FAE /* AllLeaguesPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		41BEA60D2835BCEE00D4BF6F /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				41BEA60F2835BD0300D4BF6F /* View */,
+				41BEA60E2835BCFA00D4BF6F /* Presenter */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		41BEA60E2835BCFA00D4BF6F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		41BEA60F2835BD0300D4BF6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41BEA60B2835B7F900D4BF6F /* DetailsLeagueViewController.swift */,
+				41BEA6102835C26B00D4BF6F /* UpComingCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		504032B928335218005837F6 /* DataBase */ = {
@@ -338,6 +367,7 @@
 		8E2C11012831A66900C13BA0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				41BEA60D2835BCEE00D4BF6F /* Details */,
 				41A223992835705200D31FAE /* AllLeagues */,
 				8ED5664D2834520000E3456C /* AllSports */,
 			);
@@ -684,6 +714,7 @@
 				8E2C112C2831B74B00C13BA0 /* Tables.swift in Sources */,
 				8E2B30AB28328F9F00AA48D0 /* Default.swift in Sources */,
 				8E2B30B028328F9F00AA48D0 /* Medium.swift in Sources */,
+				41BEA60C2835B7F900D4BF6F /* DetailsLeagueViewController.swift in Sources */,
 				8E2B30AF28328F9F00AA48D0 /* Thumbnails.swift in Sources */,
 				8E2B30A828328F9F00AA48D0 /* Items.swift in Sources */,
 				8E2C10AD2831A33200C13BA0 /* ViewController.swift in Sources */,
@@ -699,6 +730,7 @@
 				8E2C11332831B74B00C13BA0 /* Team.swift in Sources */,
 				8E2B30AE28328F9F00AA48D0 /* PageInfo.swift in Sources */,
 				8E2B30AA28328F9F00AA48D0 /* Snippet.swift in Sources */,
+				41BEA6112835C26B00D4BF6F /* UpComingCollectionViewCell.swift in Sources */,
 				8E2C11382831B74B00C13BA0 /* Events.swift in Sources */,
 				8E2C112A2831B74B00C13BA0 /* Repo.swift in Sources */,
 				8E2B30B4283299E200AA48D0 /* YoutubeRemoteSource.swift in Sources */,

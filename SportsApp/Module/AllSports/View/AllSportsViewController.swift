@@ -26,7 +26,7 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
         allSportsCollectionView.delegate = self
         allSportsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
 
-        allSportsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        //allSportsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
 
         
         // calling api from repo temporary - will be deleted later
