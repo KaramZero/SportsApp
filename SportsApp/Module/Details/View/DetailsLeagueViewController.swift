@@ -64,6 +64,11 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
         return cellUpComing
     }
     
+    
+    
+    @IBAction func backToDetails(sender : UIStoryboardSegue){
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

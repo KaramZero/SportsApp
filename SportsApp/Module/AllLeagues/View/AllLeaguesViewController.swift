@@ -72,7 +72,9 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     self.present(detailsVC, animated: true)
 }
     
-
+    @IBAction func backToAllSports(sender : UIStoryboardSegue){
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
