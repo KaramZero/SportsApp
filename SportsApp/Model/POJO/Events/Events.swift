@@ -7,7 +7,7 @@ struct Events: Codable {
 
   enum CodingKeys: String, CodingKey {
 
-    case events = "results"
+    case events = "events"
   
   }
 

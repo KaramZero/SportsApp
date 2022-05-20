@@ -12,5 +12,6 @@ class FavouriteLeague
     var strLeague    : String?
     var strBadge     : String?
     var strYourTube  : String?
-    var isFavourite  : Bool?
+     var strSport    : String?
 }
+

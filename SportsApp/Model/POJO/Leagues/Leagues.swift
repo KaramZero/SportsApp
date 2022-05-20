@@ -3,7 +3,8 @@ import Foundation
 
 struct Leagues: Codable {
 
-  var leagues : [League]? = []
+     
+var leagues : [League]? = []
 
   enum CodingKeys: String, CodingKey {
 
