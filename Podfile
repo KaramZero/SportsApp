@@ -11,6 +11,9 @@ target 'SportsApp' do
 	  pod 'Alamofire', '~> 4.9.1'
 
 pod 'Kingfisher', '~> 5.0'
+pod 'RxSwift', '6.5.0'
+    pod 'RxCocoa', '6.5.0'
+
 
 
   target 'SportsAppTests' do
