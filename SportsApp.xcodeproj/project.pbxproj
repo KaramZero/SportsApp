@@ -16,6 +16,7 @@
 		41A2239D2835709F00D31FAE /* AllLeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A2239C2835709F00D31FAE /* AllLeaguesPresenter.swift */; };
 		41BEA60C2835B7F900D4BF6F /* DetailsLeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEA60B2835B7F900D4BF6F /* DetailsLeagueViewController.swift */; };
 		41BEA6112835C26B00D4BF6F /* UpComingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEA6102835C26B00D4BF6F /* UpComingCollectionViewCell.swift */; };
+		41CB5B3928397D3200CA69AE /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CB5B3828397D3200CA69AE /* TeamsViewController.swift */; };
 		504032BB28335278005837F6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504032BA28335278005837F6 /* CoreDataService.swift */; };
 		504032C128335D89005837F6 /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504032C028335D89005837F6 /* CoreDataManger.swift */; };
 		8E2B309D28328AC800AA48D0 /* ApiProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2B309C28328AC800AA48D0 /* ApiProtocols.swift */; };
@@ -93,6 +94,7 @@
 		41A2239C2835709F00D31FAE /* AllLeaguesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeaguesPresenter.swift; sourceTree = "<group>"; };
 		41BEA60B2835B7F900D4BF6F /* DetailsLeagueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLeagueViewController.swift; sourceTree = "<group>"; };
 		41BEA6102835C26B00D4BF6F /* UpComingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingCollectionViewCell.swift; sourceTree = "<group>"; };
+		41CB5B3828397D3200CA69AE /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		504032BA28335278005837F6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		504032C028335D89005837F6 /* CoreDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
 		8E2B309C28328AC800AA48D0 /* ApiProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocols.swift; sourceTree = "<group>"; };
@@ -232,6 +234,30 @@
 				41BEA6102835C26B00D4BF6F /* UpComingCollectionViewCell.swift */,
 				41A0E0012837EFD500C732BA /* LatestCollectionViewCell.swift */,
 				41A0E0032837EFF100C732BA /* TeamsCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41CB5B3528397CE400CA69AE /* TeamDetails */ = {
+			isa = PBXGroup;
+			children = (
+				41CB5B3728397D0800CA69AE /* View */,
+				41CB5B3628397CFD00CA69AE /* Presenter */,
+			);
+			path = TeamDetails;
+			sourceTree = "<group>";
+		};
+		41CB5B3628397CFD00CA69AE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		41CB5B3728397D0800CA69AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41CB5B3828397D3200CA69AE /* TeamsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -390,6 +416,7 @@
 		8E2C11012831A66900C13BA0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				41CB5B3528397CE400CA69AE /* TeamDetails */,
 				41BEA60D2835BCEE00D4BF6F /* Details */,
 				41A223992835705200D31FAE /* AllLeagues */,
 				8ED5664D2834520000E3456C /* AllSports */,
@@ -724,6 +751,7 @@
 				8E2C11352831B74B00C13BA0 /* Countries.swift in Sources */,
 				8E2D55692831C0C800F458D1 /* RepoProtocols.swift in Sources */,
 				8ED5664C283451F100E3456C /* FavoriteViewController.swift in Sources */,
+				41CB5B3928397D3200CA69AE /* TeamsViewController.swift in Sources */,
 				8E2C11342831B74B00C13BA0 /* Teams.swift in Sources */,
 				8E2C11322831B74B00C13BA0 /* Season.swift in Sources */,
 				8E2C11302831B74B00C13BA0 /* Sport.swift in Sources */,

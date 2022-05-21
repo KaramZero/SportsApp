@@ -580,6 +580,7 @@
                                         <connections>
                                             <outlet property="teamsCellImage" destination="q9n-F9-4mo" id="dDK-Sl-aV0"/>
                                             <outlet property="teamsCellName" destination="ffp-H7-ccE" id="MkG-ph-WJ1"/>
+                                            <segue destination="wh7-bB-Mg8" kind="show" id="Mf8-wP-TnC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -631,6 +632,102 @@
                 <exit id="sRS-7x-Ewe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="666.66666666666674" y="2394.6428571428569"/>
+        </scene>
+        <!--Teams View Controller-->
+        <scene sceneID="Auy-Bu-j2H">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="wh7-bB-Mg8" customClass="TeamsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l5H-60-vMh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcq-di-kaq">
+                                <rect key="frame" x="20" y="82" width="374" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E6w-4L-JMg">
+                                <rect key="frame" x="129" y="197" width="156" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB1-Vy-1Cf">
+                                <rect key="frame" x="186" y="350" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loP-Be-QJM">
+                                <rect key="frame" x="26" y="44" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="wh7-bB-Mg8" eventType="touchUpInside" id="BGl-S4-jXT"/>
+                                    <segue destination="CAB-yJ-D6D" kind="unwind" unwindAction="backFromTeamsWithSender:" id="Av0-cS-bDI"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQP-wV-a6V">
+                                <rect key="frame" x="24" y="394" width="370" height="196"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FO6-fc-bOl">
+                                        <rect key="frame" x="252" y="8" width="110" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cb-Pm-XKq">
+                                        <rect key="frame" x="25" y="33" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo1-vP-IZ8">
+                                        <rect key="frame" x="25" y="77" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nn-KP-tA5">
+                                        <rect key="frame" x="25" y="143" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f3k-So-q3T">
+                                <rect key="frame" x="26" y="661" width="370" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9t-L5-bRj">
+                                        <rect key="frame" x="59" y="3" width="54" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3L1-aM-Wtd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bxX-CD-6yx"/>
+                    <connections>
+                        <outlet property="countryNameLabel" destination="7Nn-KP-tA5" id="6ho-3G-dJk"/>
+                        <outlet property="facebookImage" destination="Y9t-L5-bRj" id="U1n-Ov-gfl"/>
+                        <outlet property="staduimImage" destination="Vcq-di-kaq" id="gAu-Wj-Dfs"/>
+                        <outlet property="staduimNameLabel" destination="5Cb-Pm-XKq" id="65Z-7y-yiv"/>
+                        <outlet property="teamImage" destination="E6w-4L-JMg" id="heR-7Q-oB8"/>
+                        <outlet property="teamNameLabel" destination="hB1-Vy-1Cf" id="e8p-ud-s7D"/>
+                        <outlet property="teamShirtImage" destination="FO6-fc-bOl" id="euB-tA-KmB"/>
+                        <outlet property="yearLabel" destination="oo1-vP-IZ8" id="VXh-ux-oBa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yri-vP-Vsh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CAB-yJ-D6D" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="679.71014492753625" y="3150.6696428571427"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hht-RT-4YP">

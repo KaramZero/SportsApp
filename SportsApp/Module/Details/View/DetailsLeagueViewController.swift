@@ -201,7 +201,25 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let teamVC : TeamsViewController = segue.destination as! TeamsViewController
+        let cell = sender as! UICollectionViewCell
+        let index = teamsCollectionView.indexPath(for: cell)
+        teamVC.leagueName = teamsArr?[index?.row ?? 0].strLeague
+        teamVC.teamName = teamsArr?[index?.row ?? 0].strTeam
+        teamVC.foundedYear = teamsArr?[index?.row ?? 0].intFormedYear
+        teamVC.staduimName = teamsArr?[index?.row ?? 0].strStadium
+        teamVC.websiteURL = teamsArr?[index?.row ?? 0].strWebsite
+        teamVC.facebookURL = teamsArr?[index?.row ?? 0].strFacebook
+        teamVC.twitterURL = teamsArr?[index?.row ?? 0].strTwitter
+        teamVC.instgramURL = teamsArr?[index?.row ?? 0].strInstagram
+        teamVC.countryName = teamsArr?[index?.row ?? 0].strCountry
+        teamVC.teambadge = teamsArr?[index?.row ?? 0].strTeamBadge
+        teamVC.teamShirt = teamsArr?[index?.row ?? 0].strTeamJersey
+        teamVC.staduimThumb = teamsArr?[index?.row ?? 0].strStadiumThumb
+        self.present(teamVC, animated: true)
+    }
 
 
     /*
