@@ -9,14 +9,18 @@
 import UIKit
 
 class AllLeaguesTableViewCell: UITableViewCell {
-
+    
+    var youtubePressed : (() -> Void)?
     //outlets
     
     @IBOutlet weak var allLeaguesCellImage: UIImageView!
     @IBOutlet weak var allLeaguesCellName: UILabel!
     @IBAction func allLeaguesCellYoutube(_ sender: UIButton) {
+        youtubePressed?()
     }
     
+    @IBOutlet weak var allLeaguesCellYoutube: UIButton!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

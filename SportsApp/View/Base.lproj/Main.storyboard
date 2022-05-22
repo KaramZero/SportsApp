@@ -192,7 +192,7 @@
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="allLeaguesCellYoutube:" destination="oZi-ed-p1f" eventType="touchUpInside" id="z5s-2Q-1tI"/>
+                                                        <action selector="allLeaguesCellYoutube:" destination="oZi-ed-p1f" eventType="touchUpInside" id="BLb-8e-UVl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -212,6 +212,7 @@
                                         <connections>
                                             <outlet property="allLeaguesCellImage" destination="lGk-Jv-tyY" id="UFe-r5-OPx"/>
                                             <outlet property="allLeaguesCellName" destination="7lu-MP-O4N" id="USn-WX-k7C"/>
+                                            <outlet property="allLeaguesCellYoutube" destination="Xq5-zT-bkH" id="V3A-7f-esb"/>
                                             <segue destination="UW1-na-ufU" kind="show" identifier="goToAllLeagues" id="ZXN-46-uGX"/>
                                         </connections>
                                     </tableViewCell>
@@ -240,7 +241,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ZP-Zp-KSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7vK-ps-wYA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="667" y="1674"/>
+            <point key="canvasLocation" x="666.66666666666674" y="1673.4375"/>
         </scene>
         <!--Details League View Controller-->
         <scene sceneID="HV9-3s-BLh">

@@ -56,7 +56,27 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
         cell.allLeaguesCellName.text = league?.strLeague
         cell.allLeaguesCellImage?.kf.setImage(with:URL(string: (league?.strBadge)!),placeholder: UIImage(named: "field"), options: [.processor(process)], progressBlock: nil)
         
-        //youtube button not handled yet 
+        //youtube button not handled yet
+        cell.youtubePressed = {
+            print("youtube is pressed")
+            let youtubeRepo : YoutubeSearchRepo = Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject)
+            youtubeRepo.getYoutubeVideoID(keyWord:league?.strLeague ?? "youtube"){res in
+                 var youtubeUrl = NSURL(string:"youtube://\(res!)")!
+                 if UIApplication.shared.canOpenURL(youtubeUrl as URL){
+                     print("open app")
+                     UIApplication.shared.openURL(youtubeUrl as URL)
+                 } else{
+                     youtubeUrl = NSURL(string:"https://www.youtube.com/watch?v=\(res!)")!
+                     print("open web")
+                     UIApplication.shared.openURL(youtubeUrl as URL)
+                 }
+             }
+        }
+        
+
+            
+            
+        
         
         return cell
     }
