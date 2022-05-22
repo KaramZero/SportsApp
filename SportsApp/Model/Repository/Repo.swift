@@ -11,11 +11,14 @@ import Foundation
 import Network
 
 
-class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo, YoutubeSearchRepo{
+class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo, YoutubeSearchRepo, CoreDataRepo{
+
+    
     
     private static var sharedRepo : Repo?
     private var remoteSource : RemoteApi?
     private var youtubeSource : YoutubeSearch = YoutebeRemoteSource.sharedObject
+    private var coreData : CoreDataService = CoreDataService.sharedCoreDataService
     private let monitor = NWPathMonitor()
     private var isConnected = true
     
@@ -191,4 +194,19 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
         
     }
 
+    
+    
+    func saveFavouriteLeague(_ favouriteLeague: FavouriteLeague) {
+        coreData.saveFavouriteLeague(favouriteLeague)
+    }
+    
+    func fetchFavouriteLeague() -> [FavouriteDB] {
+        return coreData.fetchFavouriteLeague()
+    }
+    
+    func deleteSport(_ object: FavouriteDB) {
+        coreData.deleteSport(object)
+    }
+    
+    
 }

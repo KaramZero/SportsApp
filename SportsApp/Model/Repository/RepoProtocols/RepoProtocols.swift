@@ -9,15 +9,15 @@
 import Foundation
 
 protocol AllSportsRepo {
-     func getAllSports(complition : @escaping ([Sport]?) -> Void)
+    func getAllSports(complition : @escaping ([Sport]?) -> Void)
 }
 
 protocol EventsRepo {
-     func getEvents(complition : @escaping ([Event]?) -> Void)
-     func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void)
-     func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
-     func getUpcomingEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
-     
+    func getEvents(complition : @escaping ([Event]?) -> Void)
+    func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void)
+    func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
+    func getUpcomingEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
+    
 }
 
 protocol TeamsRepo {
@@ -25,10 +25,10 @@ protocol TeamsRepo {
 }
 
 protocol LeaguesRepo {
-     func getAllLeagues(complition : @escaping ([League]?) -> Void)
-     func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void)
-     func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
-     func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
+    func getAllLeagues(complition : @escaping ([League]?) -> Void)
+    func getLeagues(countryName : String , complition : @escaping ([CountryLeague]?) -> Void)
+    func getLeagues(countryName : String , sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
+    func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void)
 }
 
 protocol CountriesRepo {
@@ -37,14 +37,22 @@ protocol CountriesRepo {
 
 
 protocol SeasonsRepo {
-      func gatAllSeasonsInLeague(leagueID : String ,complition : @escaping ([Season]?) -> Void)
+    func gatAllSeasonsInLeague(leagueID : String ,complition : @escaping ([Season]?) -> Void)
 }
 
 protocol TableRepo {
-     func gatTable(leagueID : String,season : String ,complition : @escaping ([Table]?) -> Void)
+    func gatTable(leagueID : String,season : String ,complition : @escaping ([Table]?) -> Void)
 }
 
 
 protocol YoutubeSearchRepo{
     func getYoutubeVideoID(keyWord : String , complition : @escaping (String?) -> Void)
+}
+
+
+protocol CoreDataRepo {
+    
+    func saveFavouriteLeague(_ favouriteLeague:FavouriteLeague)
+    func fetchFavouriteLeague() -> [FavouriteDB]
+    func deleteSport(_ object:FavouriteDB)
 }
