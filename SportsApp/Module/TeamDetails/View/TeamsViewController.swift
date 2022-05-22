@@ -36,6 +36,12 @@ class TeamsViewController: UIViewController {
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var teamShirtImage: UIImageView!
     @IBOutlet weak var facebookImage: UIImageView!
+    @IBOutlet weak var generalCard: UIView!
+    @IBOutlet weak var tshirtCard: UIView!
+    @IBOutlet weak var socialCard: UIView!
+    @IBOutlet weak var twitterImage: UIImageView!
+    @IBOutlet weak var instgramImage: UIImageView!
+    @IBOutlet weak var websiteImage: UIImageView!
     
 
     override func viewDidLoad() {
@@ -52,6 +58,24 @@ class TeamsViewController: UIViewController {
         teamShirtImage?.kf.setImage(with:URL(string: (teamShirt) ?? "shirt"),placeholder: UIImage(named: "shirt"), options: [.processor(process)], progressBlock: nil)
         teamShirtImage.layer.cornerRadius = 20.0
         
+        facebookImage.layer.cornerRadius = facebookImage.frame.size.width / 2
+        facebookImage.clipsToBounds = true
+        //facebookImage.layer.borderColor = UIColor.white as! CGColor
+        //facebookImage.layer.borderWidth = 3
+        
+        twitterImage.layer.cornerRadius = twitterImage.frame.size.width / 2
+        twitterImage.clipsToBounds = true
+       // twitterImage.layer.borderWidth = 3
+        
+        instgramImage.layer.cornerRadius = instgramImage.frame.size.width / 2
+        instgramImage.clipsToBounds = true
+       // instgramImage.layer.borderWidth = 3
+        
+        websiteImage.layer.cornerRadius = websiteImage.frame.size.width / 2
+        websiteImage.clipsToBounds = true
+       // websiteImage.layer.borderWidth = 3
+        
+        
         
         
         teamNameLabel.text = teamName
@@ -59,12 +83,22 @@ class TeamsViewController: UIViewController {
         yearLabel.text = foundedYear
         countryNameLabel.text = countryName
         
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        //facebook
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.facebookTapped))
         facebookImage.addGestureRecognizer(tapGR)
         facebookImage.isUserInteractionEnabled = true
-        
-
+        //twitter
+        let tapGRT = UITapGestureRecognizer(target: self, action: #selector(self.twitterTapped))
+        twitterImage.addGestureRecognizer(tapGRT)
+        twitterImage.isUserInteractionEnabled = true
+        //instgram
+        let tapGRI = UITapGestureRecognizer(target: self, action: #selector(self.instgramTapped))
+        instgramImage.addGestureRecognizer(tapGRI)
+        instgramImage.isUserInteractionEnabled = true
+        //website
+        let tapGRW = UITapGestureRecognizer(target: self, action: #selector(self.websiteTapped))
+        websiteImage.addGestureRecognizer(tapGRW)
+        websiteImage.isUserInteractionEnabled = true
     }
     
 
@@ -72,12 +106,54 @@ class TeamsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    @objc func imageTapped(sender: UITapGestureRecognizer) {
+    //facebook
+    @objc func facebookTapped(sender: UITapGestureRecognizer) {
             if sender.state == .ended {
                     print("UIImageView tapped")
+                openURL(facebookURL ?? "https://www.facebook.com")
+                print(facebookURL)
+                //"https://"
             }
     }
+    //twitter
+    @objc func twitterTapped(sender: UITapGestureRecognizer) {
+            if sender.state == .ended {
+                    print("UIImageView tapped")
+                openURL(twitterURL ?? "https://www.twitter.com")
+            }
+    }
+    
+    //instgram
+    @objc func instgramTapped(sender: UITapGestureRecognizer) {
+            if sender.state == .ended {
+                    print("UIImageView tapped")
+                openURL(instgramURL ?? "https://www.instagram.com")
+            }
+    }
+    //website
+    @objc func websiteTapped(sender: UITapGestureRecognizer) {
+            if sender.state == .ended {
+                    print("UIImageView tapped")
+                openURL(websiteURL ?? "https://www.google.com")
+            }
+    }
+    
+    
+    func openURL(_ urlString: String) {
+        guard let url = URL(string: "https://" + urlString) else {
+            return
+        }
+        UIApplication.shared.open(url, completionHandler: { success in
+            if success {
+                print("opened")
+            } else {
+                print("failed")
+            }
+        })
+    }
+
+    
+    
     /*
     // MARK: - Navigation
 
