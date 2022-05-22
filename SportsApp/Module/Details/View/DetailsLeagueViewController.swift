@@ -23,7 +23,8 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     var upComingArr : [Event]?
     var latesetArr : [Event]?
     let diposeBag = DisposeBag()
-    
+    //like button
+    var flag : Bool = false
     
     
     //outlets
@@ -35,7 +36,21 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
         }
     }
     
+    @IBOutlet weak var likeBtn: UIButton!
+    
     @IBAction func likeBtn(_ sender: UIButton) {
+        if(flag){
+            likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            print("\n LIKED \n")
+            flag = true
+        }else{
+            likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                       print("\n UNLIKED \n")
+            flag = false
+        }
+        
+        
+        
     }
     
     @IBOutlet weak var upComingCollectionView: UICollectionView!

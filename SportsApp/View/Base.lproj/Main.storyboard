@@ -411,7 +411,7 @@
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="heart" catalog="system"/>
                                 <connections>
-                                    <action selector="likeBtn:" destination="UW1-na-ufU" eventType="touchUpInside" id="sIN-Kn-v6E"/>
+                                    <action selector="likeBtn:" destination="UW1-na-ufU" eventType="touchUpInside" id="bc1-lZ-1iY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7T-h3-AxM">
@@ -623,6 +623,7 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="latestCollectionView" destination="AC0-sU-8jE" id="CJS-L8-pVx"/>
+                        <outlet property="likeBtn" destination="pbu-q5-JRN" id="aYZ-TG-sCy"/>
                         <outlet property="teamsCollectionView" destination="Sxq-Pc-JRl" id="Eit-Bk-2Lf"/>
                         <outlet property="titleLabel" destination="1Wn-Iv-zx8" id="S5K-eY-DxG"/>
                         <outlet property="upComingCollectionView" destination="76s-YU-1nh" id="ubb-Mn-DZO"/>
