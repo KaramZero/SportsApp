@@ -56,8 +56,16 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
     func updateUI (result : [Sport]){
         DispatchQueue.main.async {
             self.sportArr = result
+            if(self.sportArr?.count == 0 ){
+                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                })
+                dialogMessage.addAction(ok)
+                self.present(dialogMessage, animated: true, completion: nil)
+            }else{
             self.allSportsCollectionView.reloadData()
-        }
+            }}
     }
     
     

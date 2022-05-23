@@ -51,8 +51,16 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
     func updateUI(result :[CountryLeague]){
         DispatchQueue.main.async {
             self.leaguesArr = result
+            if(self.leaguesArr?.count == 0){
+                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                 })
+                dialogMessage.addAction(ok)
+                self.present(dialogMessage, animated: true, completion: nil)
+            }else{
             self.allLeaguesTable.reloadData()
-        }
+            }}
     }
     
     //table functions
