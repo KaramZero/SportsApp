@@ -10,14 +10,17 @@ import Foundation
 class AllLeaguesPresenter {
     
     var repo : LeaguesRepo
+    var view : AllLeaguesViewProtocol
     
-    init(repo : LeaguesRepo) {
+    init(repo : LeaguesRepo , view : AllLeaguesViewProtocol) {
         self.repo = repo
+        self.view = view
     }
         
-    func getLeagues(sportName : String , complition : @escaping ([CountryLeague]?) -> Void){
+    func getLeagues(sportName : String){
             repo.getLeagues(sportName : sportName){ leagues in
-                complition(leagues)
+                //complition(leagues)
+                self.view.updateUI(result: leagues ?? [])
             }
     
     }}

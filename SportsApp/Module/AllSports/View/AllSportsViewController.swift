@@ -9,10 +9,15 @@
 import UIKit
 import Kingfisher
 
-class AllSportsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
+
+protocol AllSportsViewProtocol {
+    func updateUI (result : [Sport])
+}
+
+class AllSportsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , AllSportsViewProtocol{
     
     //testing ui using direct call from repo - will be deleted later
-    var presenter  = AllSportsPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
+    var presenter : AllSportsPresenter?
     var sportArr : [Sport]?
    // var fromSportsToLeagueProtocol :FromSportsToLeagueProtocol?
     
@@ -22,6 +27,7 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = AllSportsPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view: self)
        // CoreDataService.saveFavouriteLeague()
         
         allSportsCollectionView.dataSource = self
@@ -32,17 +38,28 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
 
         
         // calling api from repo temporary - will be deleted later
-        presenter.getAllSports(){
-            result in  for _ in result!{
-                DispatchQueue.main.async {
-                    self.sportArr = result
-                    self.allSportsCollectionView.reloadData()
-                }
-            }
-    }
+        presenter?.getAllSports()
+        
+        
+        
+                //result in
+//                DispatchQueue.main.async {
+//                    self.sportArr = result
+//                    self.allSportsCollectionView.reloadData()
+//                }
+            
+    
         
  
     }
+    
+    func updateUI (result : [Sport]){
+        DispatchQueue.main.async {
+            self.sportArr = result
+            self.allSportsCollectionView.reloadData()
+        }
+    }
+    
     
     //collection view functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

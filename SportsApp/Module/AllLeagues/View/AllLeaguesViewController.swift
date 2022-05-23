@@ -8,11 +8,14 @@
 
 import UIKit
 import Kingfisher
+protocol AllLeaguesViewProtocol {
+    func updateUI(result :[CountryLeague])
+}
 
-class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITableViewDataSource {
+class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITableViewDataSource , AllLeaguesViewProtocol{
     
     //testing ui using direct call from repo - will be deleted later
-    var presenter = AllLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
+    var presenter : AllLeaguesPresenter?
     var sportName : String?
     var leaguesArr : [CountryLeague]?
 
@@ -27,21 +30,29 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = AllLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view : self)
 
         self.allLeaguesTable.dataSource = self
         self.allLeaguesTable.delegate = self
         
        print("SPORTNAME\(String(describing: self.sportName))")
             // calling api from repo temporary - will be deleted later
-        presenter.getLeagues(sportName: sportName ?? ""){
-                result in  for _ in result!{
-                    DispatchQueue.main.async {
-                        self.leaguesArr = result
-                        self.allLeaguesTable.reloadData()
-                    }
-                }
-        }
+        presenter?.getLeagues(sportName: sportName ?? "")//{
+//                result in  for _ in result!{
+//                    DispatchQueue.main.async {
+//                        self.leaguesArr = result
+//                        self.allLeaguesTable.reloadData()
+//                    }
+//                }
+       // }
         
+    }
+    
+    func updateUI(result :[CountryLeague]){
+        DispatchQueue.main.async {
+            self.leaguesArr = result
+            self.allLeaguesTable.reloadData()
+        }
     }
     
     //table functions

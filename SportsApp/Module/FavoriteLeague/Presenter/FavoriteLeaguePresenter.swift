@@ -10,6 +10,8 @@ import Foundation
 class FavoriteLeaguePresenter{
     
     var coreData : CoreDataRepo
+    
+    
     init(coreData : CoreDataRepo) {
         self.coreData = coreData
     }

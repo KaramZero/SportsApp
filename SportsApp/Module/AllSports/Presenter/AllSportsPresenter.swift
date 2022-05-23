@@ -10,14 +10,17 @@ import Foundation
 class AllSportsPresenter {
 
     var repo : AllSportsRepo
+    var view : AllSportsViewProtocol
     
-    init(repo : AllSportsRepo) {
+    init(repo : AllSportsRepo , view : AllSportsViewProtocol ) {
         self.repo = repo
+        self.view = view
     }
     
-    func getAllSports(complition : @escaping ([Sport]?) -> Void) {
+    func getAllSports() {
             repo.getAllSports(){ sports in
-                complition(sports)
+                //complition(sports)
+                self.view.updateUI(result: sports ?? [])
             }
     } 
 }

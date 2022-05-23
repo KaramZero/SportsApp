@@ -10,13 +10,18 @@ import UIKit
 import RxSwift
 import Kingfisher
 
-class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSource, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
+protocol DetailsViewProtocol {
+    func updateUILeagues(result :[Event])
+    func updateUITeams (result : [Team])
+}
+
+class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSource, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , DetailsViewProtocol {
 
 
     var leagueName : String?
     var leagueID : String?
     var leagueObj : CountryLeague?
-    var presenter = DetailsLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), coreData: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
+    var presenter : DetailsLeaguesPresenter?
    // ,repoT: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject)
     var eventsArr : [Event]?
     var teamsArr : [Team]?
@@ -49,7 +54,7 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
             favLeague.strLeague = leagueObj?.strLeague
             favLeague.strSport = leagueObj?.strSport
             favLeague.strYourTube = leagueObj?.strYoutube
-            presenter.saveFavouriteLeague(favLeague)
+            presenter?.saveFavouriteLeague(favLeague)
             flag = false
         }else{
             likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -59,7 +64,7 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
             favLeague.strLeague = leagueObj?.strLeague
             favLeague.strSport = leagueObj?.strSport
             favLeague.strYourTube = leagueObj?.strYoutube
-            presenter.deleteSport(favLeague)
+            presenter?.deleteSport(favLeague)
             flag = true
         }
         
@@ -79,6 +84,8 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        presenter = DetailsLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), coreData: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view : self)
+        
   //////////////////////////////////////////////// case 1 ///////////////////////////////////////////////////////
         upComingCollectionView.dataSource = self
          upComingCollectionView.delegate = self
@@ -122,24 +129,26 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
         ///rest of the code calling api and setting it to array
         // calling api from repo temporary - will be deleted later
         //calling events
-        presenter.getLastEventsByLeagueID(leagueID: leagueID ?? ""){
-            result in  for _ in result!{
-                DispatchQueue.main.async {
-                    self.eventsArr = result
-                    self.upComingCollectionView.reloadData()
-                    self.latestCollectionView.reloadData()
-                }
-            }
-        }
+        presenter?.getLastEventsByLeagueID(leagueID: leagueID ?? "")
+//        {
+//            result in  for _ in result!{
+//                DispatchQueue.main.async {
+//                    self.eventsArr = result
+//                    self.upComingCollectionView.reloadData()
+//                    self.latestCollectionView.reloadData()
+//                }
+//            }
+//        }
         //calling teams
-        presenter.getAllTeams(leagueName:leagueName ?? ""){
-            result in  for _ in result!{
-                DispatchQueue.main.async {
-                    self.teamsArr = result
-                    self.teamsCollectionView.reloadData()
-                }
-            }
-        }
+        presenter?.getAllTeams(leagueName:leagueName ?? "")
+//        {
+//            result in  for _ in result!{
+//                DispatchQueue.main.async {
+//                    self.teamsArr = result
+//                    self.teamsCollectionView.reloadData()
+//                }
+//            }
+//        }
         //divise the the array into two arrays
 //        let observable = Observable.of(eventsArr)
 //        observable.take(20).subscribe(onNext: { (value) in
@@ -154,7 +163,19 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     }
     
 
-    
+    func updateUILeagues(result :[Event]){
+        DispatchQueue.main.async {
+            self.eventsArr = result
+            self.upComingCollectionView.reloadData()
+            self.latestCollectionView.reloadData()
+        }
+    }
+    func updateUITeams (result : [Team]){
+        DispatchQueue.main.async {
+            self.teamsArr = result
+            self.teamsCollectionView.reloadData()
+        }
+    }
     
     
     //functions for collection views

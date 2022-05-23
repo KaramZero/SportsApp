@@ -12,24 +12,28 @@ class DetailsLeaguesPresenter{
     var repo : Repo
    // var repoT : TeamsRepo
     var coreData : CoreDataRepo
+    var view : DetailsViewProtocol
     
-    init(repo : Repo , coreData : CoreDataRepo ) {
+    init(repo : Repo , coreData : CoreDataRepo ,view : DetailsViewProtocol ) {
        // , repoT : TeamsRepo
         self.repo = repo
         self.coreData = coreData
         //self.repoT = repoT
+        self.view = view
     }
     
-    func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void){
+    func getLastEventsByLeagueID(leagueID : String){
                 repo.getLastEventsByLeagueID(leagueID: leagueID ){ events in
-                    complition(events)
+                    //complition(events)
+                    self.view.updateUILeagues(result: events ?? [])
                 }
             
         }
     
-    func getAllTeams(leagueName : String , complition : @escaping ([Team]?) -> Void) {
+    func getAllTeams(leagueName : String) {
             repo.getAllTeams(leagueName: leagueName){ teams in
-                complition(teams)
+               // complition(teams)
+                self.view.updateUITeams(result: teams ?? [])
             }
     }
     
