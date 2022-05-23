@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import  CoreData
 
-class CoreDataService :CoreDataManager{
+class CoreDataServicee :CoreDataManager{
     static let sharedCoreDataService = CoreDataService()
     var favLeague: [FavouriteLeague] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate

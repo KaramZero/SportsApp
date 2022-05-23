@@ -18,7 +18,7 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
     private static var sharedRepo : Repo?
     private var remoteSource : RemoteApi?
     private var youtubeSource : YoutubeSearch = YoutebeRemoteSource.sharedObject
-    private var coreData : CoreDataService = CoreDataService.sharedCoreDataService
+    private var coreData : CoreDataService = CoreDataService.coreDataServiceIntanace
     private let monitor = NWPathMonitor()
     private var isConnected = true
     
@@ -197,15 +197,15 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
     
     
     func saveFavouriteLeague(_ favouriteLeague: FavouriteLeague) {
-        coreData.saveFavouriteLeague(favouriteLeague)
+        coreData.insertLeagueToCoreData(league: favouriteLeague)
     }
     
     func fetchFavouriteLeague() -> [FavouriteLeague] {
-        return coreData.fetchFavouriteLeague()
+        return coreData.getAllFavLeagueFromCoreData()
     }
     
-    func deleteSport(_ object: FavouriteLeague) {
-        coreData.deleteSport(object)
+    func deleteSport(_ favouriteLeague: FavouriteLeague) {
+        coreData.deleteFavLeagueFromCoreData(league: favouriteLeague)
     }
     
     

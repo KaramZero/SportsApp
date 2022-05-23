@@ -7,11 +7,13 @@
 //
 
 import Foundation
-class FavouriteLeague
-{
-    var strLeague    : String?
-    var strBadge     : String?
-    var strYourTube  : String?
-     var strSport    : String?
+
+struct FavouriteLeague{
+
+    let image: Data?
+    let name: String?
+    let ytLink: String?
+    let id: String?
+    let imageUrl: String?
 }
 
