@@ -24,7 +24,7 @@ class CoreDataService: CoreDataProtocol {
     
     
     func insertLeagueToCoreData(league : FavouriteLeague) -> Int{
-        let entity = NSEntityDescription.entity(forEntityName: "League", in: managedObjectContext)
+        let entity = NSEntityDescription.entity(forEntityName: "LeagueCore", in: managedObjectContext)
         
         let leagueData = NSManagedObject(entity: entity!, insertInto: managedObjectContext)
         
@@ -50,7 +50,7 @@ class CoreDataService: CoreDataProtocol {
     
     func getAllFavLeagueFromCoreData() -> [FavouriteLeague]{
         var favList : [FavouriteLeague] = []
-        let data = NSFetchRequest<NSManagedObject>(entityName: "League")
+        let data = NSFetchRequest<NSManagedObject>(entityName: "LeagueCore")
         
         do{
             let returnedArray = try managedObjectContext.fetch(data)
@@ -96,7 +96,7 @@ class CoreDataService: CoreDataProtocol {
     }
     
     func searchByObject(league: FavouriteLeague) -> NSManagedObject? {
-        let data = NSFetchRequest<NSManagedObject>(entityName: "League")
+        let data = NSFetchRequest<NSManagedObject>(entityName: "LeagueCore")
         
         do{
             let returnedArray = try managedObjectContext.fetch(data)

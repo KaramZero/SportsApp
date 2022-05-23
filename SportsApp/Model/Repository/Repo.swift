@@ -13,8 +13,6 @@ import Network
 
 class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRepo , TableRepo , SeasonsRepo, YoutubeSearchRepo, CoreDataRepo{
 
-    
-    
     private static var sharedRepo : Repo?
     private var remoteSource : RemoteApi?
     private var youtubeSource : YoutubeSearch = YoutebeRemoteSource.sharedObject
@@ -207,6 +205,18 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
     func deleteSport(_ favouriteLeague: FavouriteLeague) {
         coreData.deleteFavLeagueFromCoreData(league: favouriteLeague)
     }
+    
+    
+    func getAllFavLeagueFromCoreData() -> [FavouriteLeague] {
+        return coreData.getAllFavLeagueFromCoreData()
+    }
+    
+    func checkForFavLeagueInCoreData(league: FavouriteLeague) -> Int {
+        return coreData.checkForFavLeagueInCoreData(league: league)
+    }
+    
+
+    
     
     
 }

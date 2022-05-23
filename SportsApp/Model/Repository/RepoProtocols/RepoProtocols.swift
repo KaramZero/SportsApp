@@ -55,4 +55,7 @@ protocol CoreDataRepo {
     func saveFavouriteLeague(_ favouriteLeague:FavouriteLeague)
     func fetchFavouriteLeague() -> [FavouriteLeague]
     func deleteSport(_ object:FavouriteLeague)
+    
+    func getAllFavLeagueFromCoreData() -> [FavouriteLeague]
+    func checkForFavLeagueInCoreData(league: FavouriteLeague) -> Int
 }

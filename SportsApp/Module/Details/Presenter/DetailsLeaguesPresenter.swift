@@ -46,5 +46,13 @@ class DetailsLeaguesPresenter{
     func deleteSport(_ object: FavouriteLeague) {
         coreData.deleteSport(object)
     }
+    //trial
+    func getAllFavLeagueFromCoreData() -> [FavouriteLeague] {
+        return coreData.getAllFavLeagueFromCoreData()
+    }
+    
+    func checkForFavLeagueInCoreData(league: FavouriteLeague) -> Int {
+        return coreData.checkForFavLeagueInCoreData(league: league)
+    }
     
 }

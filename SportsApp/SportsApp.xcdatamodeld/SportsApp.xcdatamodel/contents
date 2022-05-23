@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="FavouriteLeagues" representedClassName="FavouriteLeagues" syncable="YES" codeGenerationType="class">
-        <attribute name="strBadges" optional="YES" attributeType="String"/>
-        <attribute name="strLeagues" optional="YES" attributeType="String"/>
-        <attribute name="strSports" optional="YES" attributeType="String"/>
-        <attribute name="strYourTubes" optional="YES" attributeType="String"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="LeagueCore" representedClassName="LeagueCore" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ytLink" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FavouriteLeagues" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="LeagueCore" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

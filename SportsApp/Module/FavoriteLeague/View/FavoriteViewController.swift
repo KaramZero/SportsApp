@@ -16,17 +16,10 @@ class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         favoriteArr = presenter.fetchFavouriteLeague()
-       // if favoriteArr != nil {
-            print(favoriteArr)
-            
-            //hena karam ali en a3reed el soura wara low howa b nil
-//        }
-//        else{
-//            print("empty")
-//        }
+      
+        //core trial
+        print(favoriteArr?.count)
         
     }
     

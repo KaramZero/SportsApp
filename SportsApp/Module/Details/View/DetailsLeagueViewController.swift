@@ -31,6 +31,7 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     let diposeBag = DisposeBag()
     //like button
     var flag : Bool = true
+    var fav : FavouriteLeague?
     
     
     
@@ -46,27 +47,33 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     @IBOutlet weak var likeBtn: UIButton!
     
     @IBAction func likeBtn(_ sender: UIButton) {
+//        if(flag){
+//            likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//            print("\n LIKED \n")
+//            fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
+//            presenter?.saveFavouriteLeague(fav!)
+//            flag = false
+//        }else{
+//            likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+//            print("\n UNLIKED \n")
+//            fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
+//             presenter?.deleteSport(fav!)
+//            flag = true
+//        }
         if(flag){
-            likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            print("\n LIKED \n")
-            var favLeague = FavouriteLeague()
-            favLeague.strBadge = leagueObj?.strBadge
-            favLeague.strLeague = leagueObj?.strLeague
-            favLeague.strSport = leagueObj?.strSport
-            favLeague.strYourTube = leagueObj?.strYoutube
-            presenter?.saveFavouriteLeague(favLeague)
+            likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+            print("\n UNLIKED \n")
+            fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
+            presenter?.deleteSport(fav!)
             flag = false
         }else{
-            likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-                       print("\n UNLIKED \n")
-            var favLeague = FavouriteLeague()
-            favLeague.strBadge = leagueObj?.strBadge
-            favLeague.strLeague = leagueObj?.strLeague
-            favLeague.strSport = leagueObj?.strSport
-            favLeague.strYourTube = leagueObj?.strYoutube
-            presenter?.deleteSport(favLeague)
+            likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            print("\n LIKED \n")
+            fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
+            presenter?.saveFavouriteLeague(fav!)
             flag = true
         }
+        
         
         
         
@@ -85,7 +92,17 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
         super.viewDidLoad()
 
         presenter = DetailsLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), coreData: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view : self)
-        
+        //try for like button
+        fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
+        var res = presenter?.checkForFavLeagueInCoreData(league: fav!)
+        if (res == 1){
+            likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            flag = true
+        }else{
+           likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+            flag = false
+        }
+
   //////////////////////////////////////////////// case 1 ///////////////////////////////////////////////////////
         upComingCollectionView.dataSource = self
          upComingCollectionView.delegate = self

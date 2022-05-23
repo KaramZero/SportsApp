@@ -15,5 +15,12 @@ struct FavouriteLeague{
     let ytLink: String?
     let id: String?
     let imageUrl: String?
+    
+    static func toFavoriteLeague (league : CountryLeague ) -> FavouriteLeague {
+        var img = "sportsApp"
+        
+        var fav = FavouriteLeague(image : img.data(using : .utf8) , name : league.strLeague , ytLink : league.strYoutube , id: league.idLeague , imageUrl: league.strBadge)
+        return fav
+    }
 }
 
