@@ -83,6 +83,7 @@ class CoreDataService: CoreDataProtocol {
         }
         
         managedObjectContext.delete(object)
+        try! managedObjectContext.save()
         return 1
     }
     

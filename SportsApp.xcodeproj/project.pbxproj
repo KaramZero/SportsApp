@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4109C571283AF14800BCDEA7 /* FavoriteLeaguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109C570283AF14800BCDEA7 /* FavoriteLeaguePresenter.swift */; };
+		418337FB283C16A50079A4FF /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418337FA283C16A50079A4FF /* FavoriteTableViewCell.swift */; };
 		4195806B283811BC00C91B8F /* DetailsLeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195806A283811BC00C91B8F /* DetailsLeaguesPresenter.swift */; };
 		41A0E0022837EFD500C732BA /* LatestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0E0012837EFD500C732BA /* LatestCollectionViewCell.swift */; };
 		41A0E0042837EFF100C732BA /* TeamsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0E0032837EFF100C732BA /* TeamsCollectionViewCell.swift */; };
@@ -86,6 +87,7 @@
 		1AC30669A0E1CDFF3CA28F7D /* Pods_SportsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D6BF5790C1D37C05D3CA4B /* Pods-SportsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.release.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.release.xcconfig"; sourceTree = "<group>"; };
 		4109C570283AF14800BCDEA7 /* FavoriteLeaguePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeaguePresenter.swift; sourceTree = "<group>"; };
+		418337FA283C16A50079A4FF /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		4195806A283811BC00C91B8F /* DetailsLeaguesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLeaguesPresenter.swift; sourceTree = "<group>"; };
 		41A0E0012837EFD500C732BA /* LatestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionViewCell.swift; sourceTree = "<group>"; };
 		41A0E0032837EFF100C732BA /* TeamsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8ED56648283451F100E3456C /* FavoriteViewController.swift */,
+				418337FA283C16A50079A4FF /* FavoriteTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				8E2C10A92831A33200C13BA0 /* AppDelegate.swift in Sources */,
 				8ED566542834520000E3456C /* AllSportsViewController.swift in Sources */,
 				8E2B309D28328AC800AA48D0 /* ApiProtocols.swift in Sources */,
+				418337FB283C16A50079A4FF /* FavoriteTableViewCell.swift in Sources */,
 				8E2C11362831B74B00C13BA0 /* Country.swift in Sources */,
 				8E2C11282831B74B00C13BA0 /* RemoteSource.swift in Sources */,
 				8E2C112B2831B74B00C13BA0 /* Table.swift in Sources */,

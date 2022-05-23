@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "FavouriteLeague"
-            landmarkType = "14">
+            landmarkName = "toFavoriteLeague(league:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

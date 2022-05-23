@@ -32,6 +32,8 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     //like button
     var flag : Bool = true
     var fav : FavouriteLeague?
+    var isLiked : Bool = false
+    var favLeagueItem : FavouriteLeague?
     
     
     
@@ -61,11 +63,19 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
 //            flag = true
 //        }
         if(flag){
+            if(isLiked){
+                likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                print("\n UNLIKED \n")
+                presenter?.deleteSport(favLeagueItem!)
+                flag = false
+            }else{
             likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
             print("\n UNLIKED \n")
             fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
             presenter?.deleteSport(fav!)
-            flag = false
+                flag = false
+                
+            }
         }else{
             likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             print("\n LIKED \n")
@@ -93,15 +103,22 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
 
         presenter = DetailsLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), coreData: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view : self)
         //try for like button
-        fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
-        var res = presenter?.checkForFavLeagueInCoreData(league: fav!)
-        if (res == 1){
-            likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            flag = true
+        if (isLiked == false){
+            fav = FavouriteLeague.toFavoriteLeague(league: leagueObj!)
+             var res = presenter?.checkForFavLeagueInCoreData(league: fav!)
+            if (res == 1){
+                likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                flag = true
+            }else{
+               likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                flag = false
+            }
         }else{
-           likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-            flag = false
+           likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            flag = true
         }
+                
+        
 
   //////////////////////////////////////////////// case 1 ///////////////////////////////////////////////////////
         upComingCollectionView.dataSource = self
@@ -183,14 +200,21 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     func updateUILeagues(result :[Event]){
         DispatchQueue.main.async {
             self.eventsArr = result
+            if(self.eventsArr?.count == 0 ){
+                self.upComingCollectionView.isHidden = true
+                self.latestCollectionView.isHidden = true
+            }else{
             self.upComingCollectionView.reloadData()
-            self.latestCollectionView.reloadData()
+                self.latestCollectionView.reloadData()}
         }
     }
     func updateUITeams (result : [Team]){
         DispatchQueue.main.async {
             self.teamsArr = result
-            self.teamsCollectionView.reloadData()
+            if(self.teamsArr?.count == 0 ){
+                self.teamsCollectionView.isHidden = true
+            }else{
+                self.teamsCollectionView.reloadData()}
         }
     }
     
