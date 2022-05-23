@@ -15,7 +15,8 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
 
     var leagueName : String?
     var leagueID : String?
-    var presenter = DetailsLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
+    var leagueObj : CountryLeague?
+    var presenter = DetailsLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), coreData: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
    // ,repoT: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject)
     var eventsArr : [Event]?
     var teamsArr : [Team]?
@@ -24,7 +25,8 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     var latesetArr : [Event]?
     let diposeBag = DisposeBag()
     //like button
-    var flag : Bool = false
+    var flag : Bool = true
+    
     
     
     //outlets
@@ -42,11 +44,23 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
         if(flag){
             likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             print("\n LIKED \n")
-            flag = true
+            var favLeague = FavouriteLeague()
+            favLeague.strBadge = leagueObj?.strBadge
+            favLeague.strLeague = leagueObj?.strLeague
+            favLeague.strSport = leagueObj?.strSport
+            favLeague.strYourTube = leagueObj?.strYoutube
+            presenter.saveFavouriteLeague(favLeague)
+            flag = false
         }else{
             likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
                        print("\n UNLIKED \n")
-            flag = false
+            var favLeague = FavouriteLeague()
+            favLeague.strBadge = leagueObj?.strBadge
+            favLeague.strLeague = leagueObj?.strLeague
+            favLeague.strSport = leagueObj?.strSport
+            favLeague.strYourTube = leagueObj?.strYoutube
+            presenter.deleteSport(favLeague)
+            flag = true
         }
         
         

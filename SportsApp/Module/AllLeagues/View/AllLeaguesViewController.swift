@@ -90,6 +90,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let index = allLeaguesTable.indexPath(for: cell)
     detailsVC.leagueName = leaguesArr?[index?.row ?? 0].strLeague
     detailsVC.leagueID = leaguesArr?[index?.row ?? 0].idLeague
+    detailsVC.leagueObj = leaguesArr?[index?.row ?? 0]
     self.present(detailsVC, animated: true)
 }
     

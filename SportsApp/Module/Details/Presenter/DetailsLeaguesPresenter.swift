@@ -11,10 +11,12 @@ class DetailsLeaguesPresenter{
 
     var repo : Repo
    // var repoT : TeamsRepo
+    var coreData : CoreDataRepo
     
-    init(repo : Repo ) {
+    init(repo : Repo , coreData : CoreDataRepo ) {
        // , repoT : TeamsRepo
         self.repo = repo
+        self.coreData = coreData
         //self.repoT = repoT
     }
     
@@ -30,4 +32,15 @@ class DetailsLeaguesPresenter{
                 complition(teams)
             }
     }
+    
+    //core
+    func saveFavouriteLeague(_ favouriteLeague: FavouriteLeague) {
+        coreData.saveFavouriteLeague(favouriteLeague)
+    }
+    
+    
+    func deleteSport(_ object: FavouriteLeague) {
+        coreData.deleteSport(object)
+    }
+    
 }

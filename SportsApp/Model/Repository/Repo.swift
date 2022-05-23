@@ -200,11 +200,11 @@ class Repo : EventsRepo , TeamsRepo , LeaguesRepo , CountriesRepo , AllSportsRep
         coreData.saveFavouriteLeague(favouriteLeague)
     }
     
-    func fetchFavouriteLeague() -> [FavouriteDB] {
+    func fetchFavouriteLeague() -> [FavouriteLeague] {
         return coreData.fetchFavouriteLeague()
     }
     
-    func deleteSport(_ object: FavouriteDB) {
+    func deleteSport(_ object: FavouriteLeague) {
         coreData.deleteSport(object)
     }
     

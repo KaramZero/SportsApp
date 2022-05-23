@@ -53,6 +53,6 @@ protocol YoutubeSearchRepo{
 protocol CoreDataRepo {
     
     func saveFavouriteLeague(_ favouriteLeague:FavouriteLeague)
-    func fetchFavouriteLeague() -> [FavouriteDB]
-    func deleteSport(_ object:FavouriteDB)
+    func fetchFavouriteLeague() -> [FavouriteLeague]
+    func deleteSport(_ object:FavouriteLeague)
 }

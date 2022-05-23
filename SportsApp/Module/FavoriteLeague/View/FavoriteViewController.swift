@@ -10,10 +10,24 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
 
+    var presenter = FavoriteLeaguePresenter(coreData: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject))
+    
+    var favoriteArr : [FavouriteLeague]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        favoriteArr = presenter.fetchFavouriteLeague()
+       // if favoriteArr != nil {
+            print(favoriteArr)
+            
+            //hena karam ali en a3reed el soura wara low howa b nil
+//        }
+//        else{
+//            print("empty")
+//        }
+        
     }
     
 
