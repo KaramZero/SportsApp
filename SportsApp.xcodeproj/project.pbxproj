@@ -59,6 +59,7 @@
 		8E2D556B2831CB5A00F458D1 /* RemoteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D556A2831CB5A00F458D1 /* RemoteProtocol.swift */; };
 		8E3386B2283434F800A73638 /* CountryLeagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3386B0283434F800A73638 /* CountryLeagues.swift */; };
 		8E3386B3283434F800A73638 /* CountryLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3386B1283434F800A73638 /* CountryLeague.swift */; };
+		8E8E0900283C0A2900004AFD /* RemoteSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E08FF283C0A2900004AFD /* RemoteSourceTests.swift */; };
 		8ED56649283451F100E3456C /* AllLeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED56645283451F000E3456C /* AllLeaguesViewController.swift */; };
 		8ED5664A283451F100E3456C /* AllLeaguesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED56646283451F000E3456C /* AllLeaguesTableViewCell.swift */; };
 		8ED5664C283451F100E3456C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED56648283451F100E3456C /* FavoriteViewController.swift */; };
@@ -141,6 +142,7 @@
 		8E2D556A2831CB5A00F458D1 /* RemoteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProtocol.swift; sourceTree = "<group>"; };
 		8E3386B0283434F800A73638 /* CountryLeagues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryLeagues.swift; sourceTree = "<group>"; };
 		8E3386B1283434F800A73638 /* CountryLeague.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryLeague.swift; sourceTree = "<group>"; };
+		8E8E08FF283C0A2900004AFD /* RemoteSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSourceTests.swift; sourceTree = "<group>"; };
 		8ED56645283451F000E3456C /* AllLeaguesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLeaguesViewController.swift; sourceTree = "<group>"; };
 		8ED56646283451F000E3456C /* AllLeaguesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLeaguesTableViewCell.swift; sourceTree = "<group>"; };
 		8ED56648283451F100E3456C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 		8E2C10C12831A33400C13BA0 /* SportsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E08FF283C0A2900004AFD /* RemoteSourceTests.swift */,
 				8E2C10C22831A33400C13BA0 /* SportsAppTests.swift */,
 				8E2C10C42831A33400C13BA0 /* Info.plist */,
 			);
@@ -833,6 +836,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E8E0900283C0A2900004AFD /* RemoteSourceTests.swift in Sources */,
 				8E2C10C32831A33400C13BA0 /* SportsAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

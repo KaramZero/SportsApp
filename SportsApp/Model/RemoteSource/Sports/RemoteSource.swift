@@ -23,20 +23,7 @@ class RemoteSource : RemoteApi{
         
     }
     
-    func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void) {
-        
-        source.getResponse(url: URLs.GET_LAST5_EVENTS_BY_TEAM_ID + teamID) {(res) in
-            do{
-                let response = try self.decoder.decode(Events.self, from: res!)
-                print("All LastEventsByTeamID are here")
-                complition(response.events)
-                
-            }catch let error{
-                print("All LastEventsByTeamID are not Here")
-                print(error.localizedDescription)
-            }
-        }
-    }
+   
     
     func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void){
         source.getResponse(url: URLs.GET_LATEST_EVENT + leagueID) {(res) in

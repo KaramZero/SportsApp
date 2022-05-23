@@ -10,11 +10,11 @@ import Foundation
 
 
 protocol RemoteApi{
+    
     func getAllSports(complition : @escaping ([Sport]?) -> Void)
     
     func getEvents(complition : @escaping ([Event]?) -> Void)
     
-    func getLastEventsByTeamID(teamID : String , complition : @escaping ([Event]?) -> Void)
     func getLastEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
     func getUpcomingEventsByLeagueID(leagueID : String , complition : @escaping ([Event]?) -> Void)
      
