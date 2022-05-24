@@ -31,8 +31,12 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
         
     }
     
+    @IBOutlet weak var internetImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        internetImage.isHidden = false
+        
         presenter = AllLeaguesPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view : self)
 
         self.allLeaguesTable.dataSource = self
@@ -57,9 +61,11 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
         DispatchQueue.main.async {
             self.leaguesArr = result
             if(self.leaguesArr?.count == 0){
+                self.allLeaguesTable.isHidden = true
                 var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                     print("Ok button tapped")
+                    self.internetImage.isHidden = false
                  })
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)

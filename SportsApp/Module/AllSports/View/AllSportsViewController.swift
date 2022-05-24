@@ -25,8 +25,10 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
     //outlets
     @IBOutlet weak var allSportsCollectionView: UICollectionView!
     
+    @IBOutlet weak var internetImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        internetImage.isHidden = true
         presenter = AllSportsPresenter(repo: Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject), view: self)
        // CoreDataService.saveFavouriteLeague()
         
@@ -57,9 +59,11 @@ class AllSportsViewController: UIViewController , UICollectionViewDataSource, UI
         DispatchQueue.main.async {
             self.sportArr = result
             if(self.sportArr?.count == 0 ){
+                self.allSportsCollectionView.isHidden = true
                 var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                     print("Ok button tapped")
+                    self.internetImage.isHidden = false
                 })
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)
