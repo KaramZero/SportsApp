@@ -8,6 +8,8 @@
 
 import UIKit
 import Kingfisher
+import Network
+
 protocol AllLeaguesViewProtocol {
     func updateUI(result :[CountryLeague])
 }
@@ -18,6 +20,7 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
     var presenter : AllLeaguesPresenter?
     var sportName : String?
     var leaguesArr : [CountryLeague]?
+    let monitor = NWPathMonitor()
 
     //outlets
     @IBOutlet weak var allLeaguesTable: UITableView!
@@ -47,6 +50,8 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
        // }
         
     }
+    
+
     
     func updateUI(result :[CountryLeague]){
         DispatchQueue.main.async {
@@ -79,27 +84,33 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
         cell.youtubePressed = {
             print("youtube is pressed")
             let youtubeRepo : YoutubeSearchRepo = Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject)
-            youtubeRepo.getYoutubeVideoID(keyWord:league?.strLeague ?? "youtube"){res in
-                 var youtubeUrl = NSURL(string:"youtube://\(res!)")!
-                 if UIApplication.shared.canOpenURL(youtubeUrl as URL){
-                     print("open app")
-                     UIApplication.shared.openURL(youtubeUrl as URL)
-                 } else{
-                     youtubeUrl = NSURL(string:"https://www.youtube.com/watch?v=\(res!)")!
-                     print("open web")
-                     UIApplication.shared.openURL(youtubeUrl as URL)
-                 }
+            youtubeRepo.getYoutubeVideoID(keyWord:league?.strYoutube ?? "youtube"){res in
+                if (res != nil){
+                    var youtubeUrl = NSURL(string:"youtube://\(res!)")!
+                    if UIApplication.shared.canOpenURL(youtubeUrl as URL){
+                        print("open app")
+                        UIApplication.shared.openURL(youtubeUrl as URL)
+                    } else{
+                        youtubeUrl = NSURL(string:"https://www.youtube.com/watch?v=\(res!)")!
+                        print("open web")
+                        UIApplication.shared.openURL(youtubeUrl as URL)
+                    }
+                }
+                //else
+                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    self.dismiss(animated: true, completion: nil)
+
+                 })
+                dialogMessage.addAction(ok)
+                self.present(dialogMessage, animated: true, completion: nil)
+                
              }
         }
-        
-
-            
-            
-        
-        
         return cell
+
     }
-    
 
 
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -33,7 +33,8 @@ class FavoriteLeaguePresenter{
                 //complition(leagues)
                 self.view.updateUI(result: leagues ?? [])
             }
-    
     }
+    
+    
     
 }

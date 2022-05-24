@@ -246,7 +246,7 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
     let cellUpComing = upComingCollectionView.dequeueReusableCell(withReuseIdentifier: "UpComingCollectionViewCell", for: indexPath) as! UpComingCollectionViewCell
     let upComing = eventsArr?[indexPath.row] ?? nil
     let process = RoundCornerImageProcessor(cornerRadius: 20.0)
-    cellUpComing.upCominCellImage?.kf.setImage(with:URL(string: (upComing?.strThumb) ?? "upcoming"),placeholder: UIImage(named: "upcoming"), options: [.processor(process)], progressBlock: nil)
+    cellUpComing.upCominCellImage?.kf.setImage(with:URL(string: (upComing?.strThumb) ?? "collectionbk"),placeholder: UIImage(named: "collectionbk"), options: [.processor(process)], progressBlock: nil)
     cellUpComing.upCominCellImage.layer.cornerRadius = 20.0
     cellUpComing.upComingCellEventName.text = upComing?.strEvent
     cellUpComing.upComingCellEventTime.text = upComing?.strTime
@@ -261,7 +261,7 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
             let cellLatest = latestCollectionView.dequeueReusableCell(withReuseIdentifier: "LatestCollectionViewCell", for: indexPath) as! LatestCollectionViewCell
             let latest = eventsArr?[indexPath.row] ?? nil
             let processL = RoundCornerImageProcessor(cornerRadius: 20.0)
-            cellLatest.latestCellImage?.kf.setImage(with:URL(string: (latest?.strThumb) ?? "upcoming"),placeholder: UIImage(named: "upcoming"), options: [.processor(processL)], progressBlock: nil)
+            cellLatest.latestCellImage?.kf.setImage(with:URL(string: (latest?.strThumb) ?? "collectionbk"),placeholder: UIImage(named: "collectionbk"), options: [.processor(processL)], progressBlock: nil)
             cellLatest.latestCellImage.layer.cornerRadius = 20.0
             cellLatest.latestCellTeamOneName.text = latest?.strHomeTeam
             cellLatest.latestCellTeamTwoName.text = latest?.strAwayTeam

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Network
 
 protocol FavoriteLeagueViewProtocol {
     func updateUI(result :[CountryLeague])
@@ -20,6 +21,8 @@ class FavoriteViewController: UIViewController,  UITableViewDelegate , UITableVi
     
     var favoriteArr : [FavouriteLeague]?
     var leaguesArr : [CountryLeague]?
+    let monitor = NWPathMonitor()
+
     //outlets
     @IBOutlet weak var favoriteTableView: UITableView!
     
@@ -94,15 +97,25 @@ class FavoriteViewController: UIViewController,  UITableViewDelegate , UITableVi
             print("youtube is pressed")
             let youtubeRepo : YoutubeSearchRepo = Repo.getSharedRepo(remoteSource: RemoteSource.sharedObject)
             youtubeRepo.getYoutubeVideoID(keyWord:favorite?.ytLink ?? "youtube"){res in
-                 var youtubeUrl = NSURL(string:"youtube://\(res!)")!
-                 if UIApplication.shared.canOpenURL(youtubeUrl as URL){
-                     print("open app")
-                     UIApplication.shared.openURL(youtubeUrl as URL)
-                 } else{
-                     youtubeUrl = NSURL(string:"https://www.youtube.com/watch?v=\(res!)")!
-                     print("open web")
-                     UIApplication.shared.openURL(youtubeUrl as URL)
-                 }
+                if (res != nil){
+                    var youtubeUrl = NSURL(string:"youtube://\(res!)")!
+                    if UIApplication.shared.canOpenURL(youtubeUrl as URL){
+                        print("open app")
+                        UIApplication.shared.openURL(youtubeUrl as URL)
+                    } else{
+                        youtubeUrl = NSURL(string:"https://www.youtube.com/watch?v=\(res!)")!
+                        print("open web")
+                        UIApplication.shared.openURL(youtubeUrl as URL)
+                    }
+                }
+                //else
+                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                 })
+                dialogMessage.addAction(ok)
+                self.present(dialogMessage, animated: true, completion: nil)
+                 
              }
         }
 
