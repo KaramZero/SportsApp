@@ -15,7 +15,6 @@ class RemoteSourceTests: XCTestCase {
 
     
     private let remoteSource = RemoteSource.sharedObject
-    private let youtubeSource : YoutubeSearch = YoutebeRemoteSource.sharedObject
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -45,7 +44,7 @@ class RemoteSourceTests: XCTestCase {
         
     }
     
-    func testGetEvents(){
+    func testGetUpcomingEventsByLeagueID(){
         
         let expect = expectation(description: "Waiting for API response ")
         remoteSource.getUpcomingEventsByLeagueID(leagueID: "4328"){ events in
@@ -65,7 +64,24 @@ class RemoteSourceTests: XCTestCase {
         
     }
     
-    
+    func testGetLastEventsByLeagueID(){
+        let expect = expectation(description: "Waiting for API response ")
+        remoteSource.getLastEventsByLeagueID(leagueID: "4328"){ events in
+            guard let items = events else{
+                XCTFail()
+                expect.fulfill()
+                return
+            }
+            
+            XCTAssert( true , "test faild")
+            expect.fulfill()
+            return
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        
+    }
 
     func testGetAllTeams(){
         let expect = expectation(description: "Waiting for API response ")
@@ -84,17 +100,17 @@ class RemoteSourceTests: XCTestCase {
              waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testGetAllLeagues(){
+    func testGetLeagues(){
         
         let expect = expectation(description: "Waiting for API response ")
-                   remoteSource.getAllLeagues(){ events in
+        remoteSource.getLeagues(sportName:"Soccer"){ events in
                        guard let items = events else{
                            XCTFail()
                            expect.fulfill()
                            return
                        }
                        
-                      XCTAssert( items.count == 896 , "test faild")
+                      XCTAssert( items.count == 10 , "test faild")
                        expect.fulfill()
                        return
                    }
@@ -122,5 +138,23 @@ class RemoteSourceTests: XCTestCase {
         
     }
     
+    
+    func testGatAllSeasonsInLeague(){
+        let expect = expectation(description: "Waiting for API response ")
+                                remoteSource.gatAllSeasonsInLeague(leagueID: "4328"){ seasons in
+                                    guard let items = seasons else{
+                                        XCTFail()
+                                        expect.fulfill()
+                                        return
+                                    }
+                                    
+                                   XCTAssert( items.count > 0 , "test faild")
+                                    expect.fulfill()
+                                    return
+                                }
+                                
+                                waitForExpectations(timeout: 5, handler: nil)
+    }
         
+    
 }

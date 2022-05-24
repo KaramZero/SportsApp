@@ -215,6 +215,17 @@ class DetailsLeagueViewController: UIViewController ,  UICollectionViewDataSourc
             self.teamsArr = result
             if(self.teamsArr?.count == 0 ){
                 self.teamsCollectionView.isHidden = true
+                
+                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    self.dismiss(animated: true, completion: nil)
+
+                 })
+                dialogMessage.addAction(ok)
+                self.present(dialogMessage, animated: true, completion: nil)
+                
+                
             }else{
                 self.teamsCollectionView.reloadData()}
         }

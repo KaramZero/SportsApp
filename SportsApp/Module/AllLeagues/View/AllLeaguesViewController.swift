@@ -66,6 +66,8 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                     print("Ok button tapped")
                     self.internetImage.isHidden = false
+                    self.dismiss(animated: true, completion: nil)
+
                  })
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)
@@ -102,16 +104,17 @@ class AllLeaguesViewController: UIViewController ,  UITableViewDelegate , UITabl
                         UIApplication.shared.openURL(youtubeUrl as URL)
                     }
                 }
-                //else
-                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                    print("Ok button tapped")
-                    self.dismiss(animated: true, completion: nil)
+                else{
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                                 print("Ok button tapped")
 
-                 })
-                dialogMessage.addAction(ok)
-                self.present(dialogMessage, animated: true, completion: nil)
-                
+                              })
+                             dialogMessage.addAction(ok)
+                             self.present(dialogMessage, animated: true, completion: nil)
+                             
+                }
+         
              }
         }
         return cell

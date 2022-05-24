@@ -108,13 +108,14 @@ class FavoriteViewController: UIViewController,  UITableViewDelegate , UITableVi
                         UIApplication.shared.openURL(youtubeUrl as URL)
                     }
                 }
-                //else
-                var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                    print("Ok button tapped")
-                 })
-                dialogMessage.addAction(ok)
-                self.present(dialogMessage, animated: true, completion: nil)
+                else{
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "Please Connect To The Network", preferredStyle: .alert)
+                                   let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                                       print("Ok button tapped")
+                                    })
+                                   dialogMessage.addAction(ok)
+                                   self.present(dialogMessage, animated: true, completion: nil)
+                }
                  
              }
         }
